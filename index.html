@@ -76,7 +76,30 @@ body{
   display:block;
   margin:28px auto 14px;
 }
+
 .hero-icons{font-size:14px;margin-top:4px;}
+
+/* TRUST BAR */
+.trust-bar{
+  background:#ffeb00;
+  padding:18px 0;
+  border-top:2px solid #0002;
+  border-bottom:2px solid #0002;
+}
+.trust-items{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:22px;
+  text-align:center;
+}
+.trust-item{
+  font-size:16px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
 
 /* SECTIONS */
 .section{padding:56px 0;border-top:2px solid #0002}
@@ -85,7 +108,6 @@ body{
 /* CARDS */
 .cards{display:grid;gap:18px}
 @media(min-width:860px){.cards{grid-template-columns:repeat(3,1fr);} }
-
 .card{
   background:#fff;border-radius:12px;padding:20px;
   box-shadow:0 6px 16px #0002;
@@ -122,7 +144,7 @@ body{
 .ba-label--before{background:#c0392b;}
 .ba-label--after{background:var(--green);}
 
-/* REVIEWS */
+/* REVIEW CAROUSEL UPGRADE */
 .review-slider{
   display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
   gap:20px;padding-bottom:10px;
@@ -134,11 +156,36 @@ body{
   box-shadow:0 4px 14px #0002;
   font-size:15px;
 }
-.review-stars{font-size:16px;color:var(--green);margin-bottom:6px;}
+
+.review-header{
+  display:flex;align-items:center;gap:10px;margin-bottom:6px;
+}
+.review-avatar{
+  width:32px;height:32px;border-radius:50%;background:#ccc;
+}
+
+.review-stars{font-size:16px;color:var(--green);}
 .review-name{margin-top:8px;font-weight:700;color:var(--green);}
 
-/* FAQ */
-#faq h3{margin-top:26px;margin-bottom:6px}
+/* FAQ ACCORDION */
+.faq-item{margin-bottom:14px;}
+.faq-question{
+  padding:14px;
+  font-weight:700;
+  background:#fff;
+  border-radius:10px;
+  cursor:pointer;
+  box-shadow:0 3px 8px #0002;
+}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+  background:#fff;
+  border-radius:10px;
+  margin-top:6px;
+  padding:0 14px;
+}
 
 /* SOCIAL ICONS */
 .social-links{
@@ -147,33 +194,69 @@ body{
   justify-content:center;
   gap:16px;
 }
-
 .social-img{
   width:40px;height:40px;
   border-radius:50%;
   object-fit:cover;
   transition:transform .2s ease;
 }
-
-.social-links a:hover .social-img{
-  transform:scale(1.15);
-}
-
-/* TikTok (not circular) */
+.social-links a:hover .social-img{transform:scale(1.15);}
 .tiktok-icon{
-  width:40px;height:40px;
-  object-fit:contain;
+  width:40px;height:40px;object-fit:contain;
   transition:transform .2s ease;
 }
-.social-links a:hover .tiktok-icon{
-  transform:scale(1.15);
+.social-links a:hover .tiktok-icon{transform:scale(1.15);}
+
+/* EMBED SECTION */
+.embed-section{
+  padding:56px 0;
+  background:#fff27a;
+  border-top:2px solid #0002;
+  border-bottom:2px solid #0002;
+}
+.embed-grid{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.embed-item{
+  max-width:350px;
+  width:100%;
+  background:#fff;
+  padding:12px;
+  border-radius:12px;
+  box-shadow:0 4px 12px #0002;
 }
 
-/* FOOTER */
+/* FOOTER REDESIGN */
 .site-footer{
-  background:#fff;border-top:2px solid #0002;
-  text-align:center;padding:20px 0;
-  font-weight:600;font-size:14px;
+  background:#fff;
+  border-top:2px solid #0002;
+  text-align:center;
+  padding:28px 0;
+  font-size:14px;
+}
+
+/* FLOATING BOOK NOW BUTTON */
+.floating-book {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--green);
+  color: #fff;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: 900;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.floating-book:hover {
+  transform: scale(1.05);
+  opacity: 0.92;
 }
 </style>
 </head>
@@ -212,10 +295,16 @@ body{
     </a>
 
     <img src="hero.jpg" alt="Dumfries Bin Blasters Logo">
+  </div>
+</section>
 
-    <p class="hero-icons">
-      🚛 Local &nbsp;&nbsp; ✅ Fully sanitised &nbsp;&nbsp; 🌸 Optional scent &nbsp;&nbsp; ⭐️ Trusted across Dumfries
-    </p>
+<!-- TRUST BADGE BAR -->
+<section class="trust-bar">
+  <div class="container trust-items">
+    <div class="trust-item">🛡 <span>Fully Insured</span></div>
+    <div class="trust-item">♻ <span>Eco-Friendly Cleaning</span></div>
+    <div class="trust-item">⭐ <span>5★ Rated Locally</span></div>
+    <div class="trust-item">🚚 <span>Local Dumfries Service</span></div>
   </div>
 </section>
 
@@ -229,12 +318,10 @@ body{
         <h3>🧽 Deep Clean</h3>
         <p>Pressure wash inside &amp; out. Removes grime &amp; residue.</p>
       </div>
-
       <div class="card">
         <h3>🦠 Disinfect</h3>
         <p>Kills bacteria and reduces smells.</p>
       </div>
-
       <div class="card">
         <h3>🌸 Deodorise</h3>
         <p>Fresh scent available as an optional add-on.</p>
@@ -302,6 +389,7 @@ body{
         <p>360L–660L bins</p>
         <p>Price on request</p>
       </div>
+
     </div>
 
     <h3 style="margin-top:45px;">One-Off Cleans</h3>
@@ -323,8 +411,7 @@ body{
     <h2>Before &amp; After</h2>
 
     <div class="ba-slider">
-      <!-- Your existing before/after items remain unchanged -->
-      <!-- ... no change needed here ... -->
+      <!-- Your existing before/after cards -->
     </div>
   </div>
 </section>
@@ -335,50 +422,96 @@ body{
     <h2>Customer Reviews</h2>
 
     <div class="review-slider">
-      <!-- Your review cards unchanged -->
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar"></div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p>“What a brilliant job, never seen it shine before haha 🤣 see you in 2 weeks.”</p>
+        <div class="review-name">— Leah P.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar"></div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p>“Thanks for cleaning my bins, I’ve been recommending you to everyone.”</p>
+        <div class="review-name">— Tammy K.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar"></div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p>“It’s spotless! And smells lovely too!! You’ve done a fantastic job.”</p>
+        <div class="review-name">— Charlotte C.</div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- AREAS -->
-<section id="areas" class="section">
-  <div class="container">
-    <h2>Areas We Cover</h2>
+<!-- SOCIAL EMBEDS -->
+<section class="embed-section">
+  <div class="container center">
+    <h2>See Our Work on Social Media</h2>
 
-    <ul>
-      <li>Dumfries town &amp; surrounding areas</li>
-      <li>Locharbriggs, Heathhall &amp; Marchfield</li>
-      <li>Georgetown, Calside &amp; Barnhill</li>
-      <li>Lochside, Lincluden &amp; Summerhill</li>
-      <li>Troqueer, Maxwelltown &amp; Sandside</li>
-      <li>Kingholm Quay &amp; Nunholm</li>
-      <li>Collin, Torthorwald &amp; Tinwald</li>
-    </ul>
+    <div class="embed-grid">
 
-    <p><strong>Not listed?</strong> Just ask — I may still cover it.</p>
+      <!-- INSTAGRAM -->
+      <div class="embed-item">
+        <blockquote class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/DSNhTsQiGgw/?utm_source=ig_embed"
+          data-instgrm-version="14">
+        </blockquote>
+      </div>
+
+      <!-- TIKTOK -->
+      <div class="embed-item">
+        <blockquote class="tiktok-embed"
+          cite="https://www.tiktok.com/@dumfriesbinblasters"
+          data-video-id=""
+          style="max-width: 300px; min-width: 200px;">
+          <section></section>
+        </blockquote>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- FAQ ACCORDION -->
 <section id="faq" class="section section--tint">
   <div class="container">
     <h2>FAQ</h2>
 
-    <h3>Do you collect the dirty water?</h3>
-    <p>Yes — where required we collect and dispose responsibly.</p>
+    <div class="faq-item">
+      <div class="faq-question">Do you collect the dirty water?</div>
+      <div class="faq-answer"><p>Yes — where required we collect and dispose responsibly.</p></div>
+    </div>
 
-    <h3>Do you clean inside and outside?</h3>
-    <p>Yes, every bin gets a full internal &amp; external clean.</p>
+    <div class="faq-item">
+      <div class="faq-question">Do you clean inside and outside?</div>
+      <div class="faq-answer"><p>Yes, every bin gets a full internal & external clean.</p></div>
+    </div>
 
-    <h3>Do I need to leave the bin out?</h3>
-    <p>Yes, please leave it somewhere accessible after collection.</p>
+    <div class="faq-item">
+      <div class="faq-question">Do I need to leave the bin out?</div>
+      <div class="faq-answer"><p>Yes, please leave it somewhere accessible after collection.</p></div>
+    </div>
 
-    <h3>When do I pay?</h3>
-    <p>Payment is due on the day of your clean.</p>
+    <div class="faq-item">
+      <div class="faq-question">When do I pay?</div>
+      <div class="faq-answer"><p>Payment is due on the day of your clean.</p></div>
+    </div>
+
   </div>
 </section>
 
-<!-- CTA + SOCIALS -->
+<!-- CTA + SOCIAL ICONS -->
 <section class="section">
   <div class="container center">
     <h2>Ready to book?</h2>
@@ -389,27 +522,27 @@ body{
 
     <div class="social-links">
 
-      <!-- Facebook (blue circle) -->
+      <!-- Facebook -->
       <a href="https://www.facebook.com/binblastersuk" target="_blank">
         <img class="social-img" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" style="background:#1877F2;">
       </a>
 
-      <!-- Instagram (circle gradient) -->
+      <!-- Instagram -->
       <a href="https://www.instagram.com/dumfriesbinblasters" target="_blank">
         <img class="social-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png">
       </a>
 
-      <!-- TikTok full-colour -->
+      <!-- TikTok -->
       <a href="https://www.tiktok.com/@dumfriesbinblasters" target="_blank">
         <img class="tiktok-icon" src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
       </a>
 
-      <!-- WhatsApp (green circle) -->
+      <!-- WhatsApp -->
       <a href="https://wa.me/447935739514" target="_blank">
         <img class="social-img" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" style="background:#25D366;">
       </a>
 
-      <!-- Email (black circle) -->
+      <!-- Email -->
       <a href="mailto:BinBlastersUK@outlook.com">
         <img class="social-img" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/maildotru.svg" style="background:#000;">
       </a>
@@ -421,11 +554,31 @@ body{
 
 </main>
 
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     © 2025 Dumfries Bin Blasters — Dumfries
   </div>
 </footer>
+
+<!-- FLOATING BUTTON -->
+<a class="floating-book" href="https://forms.gle/QUS5f2ULUnvjBU6i9" target="_blank">
+  Book Now
+</a>
+
+<!-- SCRIPTS -->
+<script async src="//www.instagram.com/embed.js"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<script>
+// FAQ accordion logic
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const answer = q.nextElementSibling;
+    answer.style.maxHeight = answer.style.maxHeight ? null : answer.scrollHeight + "px";
+  });
+});
+</script>
 
 </body>
 </html>
