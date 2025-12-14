@@ -671,14 +671,25 @@ body.menu-open{
 <script>
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
+  const overlay = document.querySelector('.menu-overlay');
 
   toggle.addEventListener('click', () => {
     nav.classList.toggle('open');
+    overlay.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+
+  overlay.addEventListener('click', () => {
+    nav.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
   });
 
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
+      overlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
     });
   });
 </script>
