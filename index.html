@@ -294,6 +294,27 @@ body{
   }
 }
 
+/* MOBILE MENU OVERLAY */
+.menu-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 15;
+}
+
+.menu-overlay.active{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Lock scroll when menu is open */
+body.menu-open{
+  overflow: hidden;
+}
+
 </style>
 </head>
 
