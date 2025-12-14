@@ -195,11 +195,41 @@ body{
 }
 
 /* FOOTER */
-.site-footer{
-  background:#fff;border-top:2px solid #0002;
-  text-align:center;padding:20px 0;font-weight:600;
-  font-size:14px;
+
+/* FLOATING BOOK NOW BUTTON */
+.floating-book-btn{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  background: var(--green);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 16px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.floating-book-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+/* MOBILE TWEAK */
+@media (max-width: 768px){
+  .floating-book-btn{
+    bottom: 15px;
+    right: 15px;
+    font-size: 15px;
+    padding: 14px 20px;
+  }
+}
+
 </style>
 </head>
 
