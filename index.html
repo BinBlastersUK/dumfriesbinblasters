@@ -284,6 +284,32 @@ body{
   }
 }
 
+/* MENU OVERLAY */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 25;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Keep nav above overlay */
+.nav {
+  z-index: 30;
+}
+
+/* Lock scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
 /* DESKTOP RESET */
 @media (min-width: 901px) {
   .nav {
