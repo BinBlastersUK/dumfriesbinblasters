@@ -230,6 +230,70 @@ body{
   }
 }
 
+/* HAMBURGER BUTTON */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #111;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* MOBILE NAV */
+@media (max-width: 900px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background: #ffeb00;
+    border-bottom: 2px solid #0002;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .nav a {
+    padding: 14px 0;
+    font-size: 16px;
+  }
+
+  .nav.open {
+    max-height: 400px; /* enough for all links */
+  }
+}
+
+/* DESKTOP RESET */
+@media (min-width: 901px) {
+  .nav {
+    display: flex;
+    position: static;
+    max-height: none;
+    flex-direction: row;
+  }
+}
+
 </style>
 </head>
 
