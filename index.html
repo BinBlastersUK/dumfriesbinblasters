@@ -271,7 +271,9 @@ body{
 
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease;
+    transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
+opacity: 0;
+transform: translateY(-8px);
   }
 
   .nav a {
@@ -280,8 +282,10 @@ body{
   }
 
   .nav.open {
-    max-height: 400px; /* enough for all links */
-  }
+  max-height: 400px; /* enough for all links */
+  opacity: 1;
+  transform: translateY(0);
+}
 }
 
 /* MENU OVERLAY */
