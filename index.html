@@ -249,6 +249,19 @@ body{
   transition: all 0.3s ease;
 }
 
+/* Hamburger → X animation */
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 /* MOBILE NAV */
 @media (max-width: 900px) {
 
@@ -707,12 +720,14 @@ body.menu-open{
     nav.classList.toggle('open');
     overlay.classList.toggle('active');
     document.body.classList.toggle('menu-open');
+    toggle.classList.toggle('open'); // 🔑 THIS LINE
   });
 
   overlay.addEventListener('click', () => {
     nav.classList.remove('open');
     overlay.classList.remove('active');
     document.body.classList.remove('menu-open');
+    toggle.classList.remove('open'); // 🔑 THIS LINE
   });
 
   nav.querySelectorAll('a').forEach(link => {
@@ -720,6 +735,7 @@ body.menu-open{
       nav.classList.remove('open');
       overlay.classList.remove('active');
       document.body.classList.remove('menu-open');
+      toggle.classList.remove('open'); // 🔑 THIS LINE
     });
   });
 </script>
