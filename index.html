@@ -136,17 +136,17 @@ body{
 .ba-label--before{background:#c0392b;}
 .ba-label--after{background:var(--green);}
 
-@media (min-width:1024px){
+@media (min-width: 1024px){
   .ba-slider{
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
     overflow: visible;
   }
 
   .ba-pair{
-    flex: unset;
-    max-width: unset;
+    flex: 0 0 220px;
+    max-width: 220px;
   }
 }
 
