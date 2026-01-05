@@ -136,15 +136,20 @@ body{
 .ba-label--before{background:#c0392b;}
 .ba-label--after{background:var(--green);}
 
-@media (min-width:768px){
+@media (min-width:1024px){
   .ba-slider{
-    justify-content:center;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:24px;
+    overflow:visible;
   }
+
   .ba-pair{
-    flex:0 0 45%;
-    max-width:420px;
+    flex:none;
+    max-width:none;
   }
 }
+
 
 /* REVIEWS */
 .review-slider{
