@@ -341,6 +341,32 @@ body.menu-open{
   overflow: hidden;
 }
 
+/* ===== DESKTOP FIX FOR BEFORE & AFTER ===== */
+@media (min-width: 1024px) {
+
+  .gallery-full .container {
+    max-width: 1400px;
+  }
+
+  .ba-slider {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    overflow: visible;
+  }
+
+  .ba-pair {
+    flex: unset;
+    max-width: none;
+    margin: 0;
+  }
+
+  .ba-card img {
+    max-height: none;
+    object-fit: contain;
+  }
+}
+
 </style>
 </head>
 
