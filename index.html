@@ -136,20 +136,15 @@ body{
 .ba-label--before{background:#c0392b;}
 .ba-label--after{background:var(--green);}
 
-@media (min-width: 1024px) {
-  .ba-slider {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    overflow: visible;
+@media (min-width:768px){
+  .ba-slider{
+    justify-content:center;
   }
-
-  .ba-pair {
-    flex: none;
-    max-width: 100%;
+  .ba-pair{
+    flex:0 0 45%;
+    max-width:420px;
   }
 }
-
 
 /* REVIEWS */
 .review-slider{
@@ -361,16 +356,26 @@ body.menu-open{
   <span></span>
 </button>
 
-<nav class="nav">
-  <a href="#services">Services</a>
-  <a href="#whyus">Why Us</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#gallery">Before/After</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#areas">Areas</a>
-</nav>
+<ul class="nav-links">
+  <li><a href="#services">Services</a></li>
+  <li><a href="#why">Why Us</a></li>
+  <li><a href="#pricing">Pricing</a></li>
+  <li><a href="#gallery">Before/After</a></li>
+  <li><a href="#reviews">Reviews</a></li>
+  <li><a href="#areas">Areas</a></li>
 
-    
+  <li class="menu-book">
+    <a href="https://your-booking-link" class="menu-book-btn">
+      Book Now
+    </a>
+  </li>
+</ul>
+
+
+    <a href="https://dumfriesbinblasters.co.uk/book"
+   class="button button--primary">
+  Book Now
+</a>
   </div>
 </header>
 
