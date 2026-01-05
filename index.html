@@ -1,3 +1,5 @@
+Script keep save 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,17 +138,17 @@ body{
 .ba-label--before{background:#c0392b;}
 .ba-label--after{background:var(--green);}
 
-@media (min-width: 1024px){
-  .ba-slider{
-    display: flex;
-    justify-content: center;
-    gap: 40px;
+@media (min-width: 1024px) {
+  .ba-slider {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
     overflow: visible;
   }
 
-  .ba-pair{
-    flex: 0 0 220px;
-    max-width: 220px;
+  .ba-pair {
+    flex: none;
+    max-width: 100%;
   }
 }
 
@@ -254,19 +256,6 @@ body{
   transition: all 0.3s ease;
 }
 
-/* Hamburger → X animation */
-.menu-toggle.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
 /* MOBILE NAV */
 @media (max-width: 900px) {
 
@@ -289,9 +278,7 @@ body{
 
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
-opacity: 0;
-transform: translateY(-8px);
+    transition: max-height 0.35s ease;
   }
 
   .nav a {
@@ -300,10 +287,8 @@ transform: translateY(-8px);
   }
 
   .nav.open {
-  max-height: 400px; /* enough for all links */
-  opacity: 1;
-  transform: translateY(0);
-}
+    max-height: 400px; /* enough for all links */
+  }
 }
 
 /* MENU OVERLAY */
@@ -385,15 +370,9 @@ body.menu-open{
   <a href="#gallery">Before/After</a>
   <a href="#reviews">Reviews</a>
   <a href="#areas">Areas</a>
-  <a href="https://dumfriesbinblasters.co.uk/book"
-   class="button button--primary"
-   style="margin:14px 0;">
-  Book Now
-</a>
-
 </nav>
 
-
+    
   </div>
 </header>
 
@@ -533,17 +512,16 @@ body.menu-open{
 
     <div class="ba-slider">
 
-      <div class="ba-slider">
-  <div class="ba-card">
-    <span class="ba-label ba-label--before">Before</span>
-    <img src="ba1_before.jpg">
-  </div>
-
-  <div class="ba-card">
-    <span class="ba-label ba-label--after">After</span>
-    <img src="ba1_after.jpg">
-  </div>
-</div>
+      <div class="ba-pair">
+        <div class="ba-card">
+          <span class="ba-label ba-label--before">Before</span>
+          <img src="ba1_before.jpg" alt="Before Clean 1">
+        </div>
+        <div class="ba-card">
+          <span class="ba-label ba-label--after">After</span>
+          <img src="ba1_after.jpg" alt="After Clean 1">
+        </div>
+      </div>
 
       <div class="ba-pair">
         <div class="ba-card">
@@ -712,7 +690,6 @@ body.menu-open{
 <footer class="site-footer">
   <div class="container">
     © Dumfries Bin Blasters. All rights reserved.
-
   </div>
 </footer>
 
@@ -730,14 +707,12 @@ body.menu-open{
     nav.classList.toggle('open');
     overlay.classList.toggle('active');
     document.body.classList.toggle('menu-open');
-    toggle.classList.toggle('open'); // 🔑 THIS LINE
   });
 
   overlay.addEventListener('click', () => {
     nav.classList.remove('open');
     overlay.classList.remove('active');
     document.body.classList.remove('menu-open');
-    toggle.classList.remove('open'); // 🔑 THIS LINE
   });
 
   nav.querySelectorAll('a').forEach(link => {
@@ -745,7 +720,6 @@ body.menu-open{
       nav.classList.remove('open');
       overlay.classList.remove('active');
       document.body.classList.remove('menu-open');
-      toggle.classList.remove('open'); // 🔑 THIS LINE
     });
   });
 </script>
