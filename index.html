@@ -93,38 +93,49 @@ body{
 .price{font-size:32px;font-weight:900;color:var(--green);}
 .small{font-size:13px;opacity:.7}
 
-/* BEFORE & AFTER – SLIDER WITH LABELS */
+/* BEFORE & AFTER – CONSISTENT SLIDER (MOBILE + DESKTOP) */
+
 .ba-slider{
-  display:flex;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  gap:24px;
-  padding:10px 4px 5px;
+  display: flex;
+  overflow-x: auto;
+  gap: 24px;
+  padding: 16px 20px;
+  scroll-snap-type: x mandatory;
+
+  /* centers slider content on wide screens */
+  max-width: 100%;
+  margin: 0 auto;
 }
+
 .ba-pair{
-  flex:0 0 90%;
-  max-width:480px;
-  scroll-snap-align:center;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin:0 auto;
+  flex: 0 0 80%;
+  max-width: 480px;
+
+  scroll-snap-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  margin: 0 auto;
 }
+
 .ba-card{
-  background:#fff;
-  border-radius:18px;
-  padding:12px 12px 16px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.18);
-  position:relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 12px 12px 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  position: relative;
 }
+
 .ba-card img{
-  width:100%;
-  height:auto;
-  max-height:70vh;       /* prevents insane vertical zoom */
-  display:block;
-  border-radius:14px;
-  object-fit:contain;    /* SHOW THE WHOLE IMAGE */
-  background:#000;       /* optional – avoids empty look */
+  width: 100%;
+  height: auto;
+  max-height: 70vh;       /* prevents insane vertical zoom */
+  object-fit: contain;   /* ALWAYS show full image */
+  display: block;
+  border-radius: 14px;
+  background: #000;      /* avoids empty look */
 }
 
 .ba-label{
