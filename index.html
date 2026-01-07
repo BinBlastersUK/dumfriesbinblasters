@@ -119,11 +119,14 @@ body{
 }
 .ba-card img{
   width:100%;
-  max-height:420px;
+  height:auto;
+  max-height:70vh;       /* prevents insane vertical zoom */
   display:block;
   border-radius:14px;
-  object-fit:cover;
+  object-fit:contain;    /* SHOW THE WHOLE IMAGE */
+  background:#000;       /* optional – avoids empty look */
 }
+
 .ba-label{
   position:absolute;
   top:10px;left:16px;
