@@ -25,14 +25,6 @@ body{
 }
 
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
-/* Allow Before/After slider to break out on desktop */
-#gallery .container{
-  max-width: none;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-
 .center{text-align:center}
 
 /* HEADER */
@@ -109,24 +101,15 @@ body{
   gap:24px;
   padding:10px 4px 5px;
 }
-
-/* Desktop layout for Before & After */
-@media (min-width: 900px){
-  .ba-slider{
-    overflow: visible;
-    scroll-snap-type: none;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px;
-    justify-content: center;
-  }
-
-  .ba-pair{
-    max-width: 520px;
-    margin: 0 auto;
-  }
+.ba-pair{
+  flex:0 0 90%;
+  max-width:480px;
+  scroll-snap-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin:0 auto;
 }
-
 .ba-card{
   background:#fff;
   border-radius:18px;
@@ -153,6 +136,15 @@ body{
 .ba-label--before{background:#c0392b;}
 .ba-label--after{background:var(--green);}
 
+@media (min-width:768px){
+  .ba-slider{
+    justify-content:center;
+  }
+  .ba-pair{
+    flex:0 0 45%;
+    max-width:420px;
+  }
+}
 
 /* REVIEWS */
 .review-slider{
@@ -349,7 +341,6 @@ body.menu-open{
   overflow: hidden;
 }
 
-
 </style>
 </head>
 
@@ -512,8 +503,9 @@ body.menu-open{
 </section>
 
 <!-- BEFORE & AFTER – SLIDER -->
-<section id="gallery" class="section">
+<section id="gallery" class="section gallery-full">
   <div class="container">
+
     <h2>Before &amp; After</h2>
 
     <div class="ba-slider">
@@ -521,11 +513,11 @@ body.menu-open{
       <div class="ba-pair">
         <div class="ba-card">
           <span class="ba-label ba-label--before">Before</span>
-          <img src="ba1_before.jpg" alt="Before Clean 2">
+          <img src="ba2_before.jpg" alt="Before Clean 2">
         </div>
         <div class="ba-card">
           <span class="ba-label ba-label--after">After</span>
-          <img src="ba1_after.jpg" alt="After Clean 2">
+          <img src="ba2_after.jpg" alt="After Clean 2">
         </div>
       </div>
 
@@ -731,4 +723,4 @@ body.menu-open{
 </script>
 
 </body>
-</html>
+</html> 
