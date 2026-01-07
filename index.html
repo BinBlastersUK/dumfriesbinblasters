@@ -109,13 +109,22 @@ body{
   gap:24px;
   padding:10px 4px 5px;
 }
-.ba-pair{
-  flex: 0 0 45%;
-  max-width: 520px;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+
+/* Desktop layout for Before & After */
+@media (min-width: 900px){
+  .ba-slider{
+    overflow: visible;
+    scroll-snap-type: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .ba-pair{
+    max-width: 520px;
+    margin: 0 auto;
+  }
 }
 
 .ba-card{
