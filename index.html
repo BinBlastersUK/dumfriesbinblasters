@@ -25,6 +25,16 @@ body{
 }
 
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
+/* Allow Before/After slider full width on desktop */
+#gallery .container{
+  max-width: none;
+}
+
+/* Allow Before/After slider full width */
+#gallery .container{
+  max-width: none;
+}
+
 .center{text-align:center}
 
 /* HEADER */
@@ -102,14 +112,14 @@ body{
   padding:10px 4px 5px;
 }
 .ba-pair{
-  flex:0 0 90%;
-  max-width:480px;
-  scroll-snap-align:center;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin:0 auto;
+  flex: 0 0 45%;
+  max-width: 520px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
+
 .ba-card{
   background:#fff;
   border-radius:18px;
@@ -136,15 +146,6 @@ body{
 .ba-label--before{background:#c0392b;}
 .ba-label--after{background:var(--green);}
 
-@media (min-width:768px){
-  .ba-slider{
-    justify-content:center;
-  }
-  .ba-pair{
-    flex:0 0 45%;
-    max-width:420px;
-  }
-}
 
 /* REVIEWS */
 .review-slider{
