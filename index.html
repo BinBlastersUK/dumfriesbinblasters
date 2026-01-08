@@ -114,29 +114,24 @@ body{
 
 /* BEFORE & AFTER – CONSISTENT SLIDER (MOBILE + DESKTOP) */
 
-.ba-slider{
+.ba-slider {
   display: flex;
+  justify-content: flex-start;
   overflow-x: auto;
   gap: 24px;
   padding: 16px 20px;
   scroll-snap-type: x mandatory;
-
-  /* centers slider content on wide screens */
   max-width: 100%;
   margin: 0 auto;
 }
 
-.ba-pair{
-  flex: 0 0 80%;
-  max-width: 480px;
-
+.ba-pair {
+  flex: 0 0 360px;
+  max-width: 360px;
   scroll-snap-align: center;
-
   display: flex;
   flex-direction: column;
   gap: 14px;
-
-  margin: 0 auto;
 }
 
 .ba-card{
