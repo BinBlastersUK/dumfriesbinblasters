@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@
   ]
 }
 </script>
-
+  
 <style>
 /* BRAND COLOURS */
 :root{
@@ -43,14 +44,7 @@ body{
   color:var(--text);
 }
 
-/* GLOBAL CONTAINER */
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
-
-/* FIX: allow Before & After gallery to use full width on desktop */
-.section.gallery-full .container{
-  max-width:100%;
-}
-
 .center{text-align:center}
 
 /* HEADER */
@@ -152,11 +146,11 @@ body{
 .ba-card img{
   width: 100%;
   height: auto;
-  max-height: 70vh;
-  object-fit: contain;
+  max-height: 70vh;       /* prevents insane vertical zoom */
+  object-fit: contain;   /* ALWAYS show full image */
   display: block;
   border-radius: 14px;
-  background: #000;
+  background: #000;      /* avoids empty look */
 }
 
 .ba-label{
@@ -172,8 +166,13 @@ body{
 .ba-label--after{background:var(--green);}
 
 @media (min-width:768px){
-  .ba-slider{justify-content:center;}
-  .ba-pair{flex:0 0 45%;max-width:420px;}
+  .ba-slider{
+    justify-content:center;
+  }
+  .ba-pair{
+    flex:0 0 45%;
+    max-width:420px;
+  }
 }
 
 /* REVIEWS */
@@ -202,7 +201,8 @@ body{
   gap: 14px;
 }
 
-.social-links img {
+/* Force all icons to stay small */
+  .social-links img {
   width: 64px;
   height: 64px;
   object-fit: contain;
@@ -210,6 +210,7 @@ body{
   transition: transform .2s ease;
 }
 
+/* Circle background styling */
 .circle {
   padding: 2px;
   border-radius: 50%;
@@ -217,9 +218,12 @@ body{
   box-shadow: 0 2px 6px #0002;
 }
 
+/* Hover effect */
 .social-links a:hover img {
   transform: scale(1.15);
 }
+
+/* FOOTER */
 
 /* FLOATING BOOK NOW BUTTON */
 .floating-book-btn{
@@ -227,6 +231,7 @@ body{
   bottom: 20px;
   right: 20px;
   z-index: 9999;
+
   background: var(--green);
   color: #ffffff;
   font-weight: 900;
@@ -234,18 +239,140 @@ body{
   padding: 14px 22px;
   border-radius: 999px;
   text-decoration: none;
+
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.floating-book-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+/* MOBILE TWEAK */
 @media (max-width: 768px){
   .floating-book-btn{
     bottom: 70px;
     right: 15px;
     font-size: 15px;
+    padding: 14px 20px;
   }
 }
+
+/* HAMBURGER BUTTON */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #111;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* MOBILE NAV */
+@media (max-width: 900px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background: #ffeb00;
+    border-bottom: 2px solid #0002;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .nav a {
+    padding: 14px 0;
+    font-size: 16px;
+  }
+
+  .nav.open {
+    max-height: 400px; /* enough for all links */
+  }
+}
+
+/* MENU OVERLAY */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 25;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Keep nav above overlay */
+.nav {
+  z-index: 30;
+}
+
+/* Lock scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* DESKTOP RESET */
+@media (min-width: 901px) {
+  .nav {
+    display: flex;
+    position: static;
+    max-height: none;
+    flex-direction: row;
+  }
+}
+
+/* MOBILE MENU OVERLAY */
+.menu-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 15;
+}
+
+.menu-overlay.active{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Lock scroll when menu is open */
+body.menu-open{
+  overflow: hidden;
+}
+
 </style>
 </head>
+
 <body>
 
 <header class="site-header">
@@ -253,29 +380,337 @@ body{
     <div style="font-weight:900;font-size:20px;">Dumfries Bin Blasters</div>
 
     <button class="menu-toggle" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
-    <nav class="nav">
-      <a href="#services">Services</a>
-      <a href="#whyus">Why Us</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#gallery">Before/After</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#areas">Areas</a>
-      <a href="https://dumfriesbinblasters.co.uk/book" class="nav-book">Book Now</a>
-    </nav>
+<nav class="nav">
+  <a href="#services">Services</a>
+  <a href="#whyus">Why Us</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#gallery">Before/After</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#areas">Areas</a>
+
+  <!-- Book Now inside menu -->
+  <a href="https://dumfriesbinblasters.co.uk/book" class="nav-book">
+    Book Now
+  </a>
+</nav>
+
   </div>
 </header>
 
 <div class="menu-overlay"></div>
 
 <main id="home">
-<!-- EVERYTHING BELOW THIS POINT IS YOUR ORIGINAL CODE UNCHANGED -->
-<!-- SERVICES, WHY US, PRICING, GALLERY, REVIEWS, AREAS, FAQ, CTA -->
-<!-- SCRIPT AND FOOTER REMAIN IDENTICAL -->
 
-<!-- (Paste the remainder of your original file here exactly as-is) -->
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Fresh, Sanitised Bins Without the Hassle</h1>
+
+    <p>
+      Dumfries reliable bin cleaning service. Book your clean in under 30
+      seconds. Deep clean • Disinfect • Deodorise • No contracts • Local
+      and trusted.
+    </p>
+
+    <a class="button button--primary"
+   href="https://dumfriesbinblasters.co.uk/book"
+   style="font-size:18px;">
+  Book Your Clean
+</a>
+
+    <img src="hero.jpg" alt="Dumfries Bin Blasters Logo">
+
+    <p class="hero-icons">
+      📍 Local &nbsp;&nbsp; ✅ Fully sanitised &nbsp;&nbsp; 🌸 Optional scent &nbsp;&nbsp; 🚛 Trusted across Dumfries
+    </p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section section--tint">
+  <div class="container">
+    <h2>What We Do</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🧽 Deep Clean</h3>
+        <p>Pressure wash inside &amp; out. Removes grime &amp; residue.</p>
+      </div>
+
+      <div class="card">
+        <h3>🦠 Disinfect</h3>
+        <p>Kills bacteria and reduces smells.</p>
+      </div>
+
+      <div class="card">
+        <h3>🌸 Deodorise</h3>
+        <p>Fresh scent available as an optional add-on.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="whyus" class="section">
+  <div class="container">
+    <h2>Why Choose Bin Blasters?</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>🕒 Simple, Flexible Booking</h3>
+        <p>Book online in under 30 seconds with monthly, fortnightly or one-off cleans.</p>
+      </div>
+      <div class="card">
+        <h3>🧴 Fully Sanitised</h3>
+        <p>We clean, disinfect and rinse so your bin is fresh, not just rinsed.</p>
+      </div>
+      <div class="card">
+        <h3>⭐ Local &amp; Trusted</h3>
+        <p>Based in Dumfries with regular happy customers and 5★ feedback.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section">
+  <div class="container">
+    <h2>Simple Pricing</h2>
+
+    <h3 style="margin-top:35px;">Monthly / Fortnightly</h3>
+    <div class="cards">
+
+      <div class="card">
+        <h3>Basic Clean</h3>
+        <div class="price">£7</div>
+        <p>1 bin • per clean</p>
+      </div>
+
+      <div class="card">
+        <h3>Combo Clean</h3>
+        <div class="price">£12</div>
+        <p>Any 2 bins • per clean</p>
+      </div>
+
+      <div class="card">
+        <h3>Bincare Standard</h3>
+        <div class="price">£20</div>
+        <p>3 bins + food caddy • per month</p>
+      </div>
+
+      <div class="card">
+        <h3>Full Bincare</h3>
+        <div class="price">£24</div>
+        <p>4 bins (inc. 2 greys) + caddy • per month</p>
+      </div>
+
+      <div class="card">
+        <h3>Custom / Garden Bins</h3>
+        <p>360L–1100L bins</p>
+        <p>Price on request</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:45px;">One-Off Cleans</h3>
+    <div class="cards">
+      <div class="card">
+        <h3>One-Off Clean</h3>
+        <div class="price">From £10</div>
+        <p>£10 — 240L</p>
+        <p>£15 — 360L</p>
+        <p class="small">+£1 optional scent</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE & AFTER – SLIDER -->
+<section id="gallery" class="section gallery-full">
+  <div class="container">
+
+    <h2>Before &amp; After</h2>
+
+    <div class="ba-slider">
+
+      <div class="ba-pair">
+        <div class="ba-card">
+          <span class="ba-label ba-label--before">Before</span>
+          <img src="ba1_before.jpg" alt="Before Clean 2">
+        </div>
+        <div class="ba-card">
+          <span class="ba-label ba-label--after">After</span>
+          <img src="ba1_after.jpg" alt="After Clean 2">
+        </div>
+      </div>
+
+      <div class="ba-pair">
+        <div class="ba-card">
+          <span class="ba-label ba-label--before">Before</span>
+          <img src="ba2_before.jpg" alt="Before Clean 2">
+        </div>
+        <div class="ba-card">
+          <span class="ba-label ba-label--after">After</span>
+          <img src="ba2_after.jpg" alt="After Clean 2">
+        </div>
+      </div>
+
+      <div class="ba-pair">
+        <div class="ba-card">
+          <span class="ba-label ba-label--before">Before</span>
+          <img src="ba3_before.jpg" alt="Before Clean 3">
+        </div>
+        <div class="ba-card">
+          <span class="ba-label ba-label--after">After</span>
+          <img src="ba3_after.jpg" alt="After Clean 3">
+        </div>
+      </div>
+
+      <div class="ba-pair">
+        <div class="ba-card">
+          <span class="ba-label ba-label--before">Before</span>
+          <img src="ba4_before.jpg" alt="Before Clean 4">
+        </div>
+        <div class="ba-card">
+          <span class="ba-label ba-label--after">After</span>
+          <img src="ba4_after.jpg" alt="After Clean 4">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="section section--tint">
+  <div class="container">
+    <h2>Customer Reviews</h2>
+
+    <div class="review-slider">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>“What a brilliant job, never seen it shine before haha 🤣 see you in 2 weeks.”</p>
+        <div class="review-name">— Leah P.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>“Thanks for cleaning my bins, I’ve been recommending you to everyone.”</p>
+        <div class="review-name">— Tammy K.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>“It’s spotless! And smells lovely too!! You’ve done a fantastic job.”</p>
+        <div class="review-name">— Charlotte C.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>“It’s sparkling! Thank you.”</p>
+        <div class="review-name">— Ben R.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>“You done my bin. First class job.”</p>
+        <div class="review-name">— Lynne R.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>“Thanks for doing a great job on my bin :)”</p>
+        <div class="review-name">— Lauren M.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section id="areas" class="section">
+  <div class="container">
+    <h2>Areas We Cover</h2>
+
+    <ul>
+      <li>Dumfries town &amp; surrounding areas</li>
+      <li>Locharbriggs, Heathhall &amp; Marchfield</li>
+      <li>Georgetown, Calside &amp; Barnhill</li>
+      <li>Lochside, Lincluden &amp; Summerhill</li>
+      <li>Troqueer, Maxwelltown &amp; Sandside</li>
+      <li>Kingholm Quay &amp; Nunholm</li>
+      <li>Collin, Torthorwald &amp; Tinwald</li>
+    </ul>
+
+    <p><strong>Not listed?</strong> Just ask — I may still cover it.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section section--tint">
+  <div class="container">
+    <h2>FAQ</h2>
+
+    <h3>Do you collect the dirty water?</h3>
+    <p>Yes — where required we collect and dispose responsibly.</p>
+
+    <h3>Do you clean inside and outside?</h3>
+    <p>Yes, every bin gets a full internal &amp; external clean.</p>
+
+    <h3>Do I need to leave the bin out?</h3>
+    <p>Yes, please leave it somewhere accessible after collection.</p>
+
+    <h3>When do I pay?</h3>
+    <p>Payment is due on the day of your clean.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container center">
+    <h2>Ready to book?</h2>
+    <a class="button button--primary"
+   href="https://dumfriesbinblasters.co.uk/book">
+  Book a Clean
+</a>
+
+    <div class="social-links">
+
+  <a href="https://www.facebook.com/binblastersuk" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
+         alt="Facebook" class="social-img circle">
+  </a>
+
+  <a href="https://www.instagram.com/dumfriesbinblasters" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" 
+         alt="Instagram" class="social-img circle">
+  </a>
+
+  <a href="https://www.tiktok.com/@dumfriesbinblasters" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" 
+         alt="TikTok" class="social-img circle">
+  </a>
+
+  <a href="https://wa.me/447935739514" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" class="social-img circle">
+  </a>
+
+  <a href="mailto:dumfriesbinblasters@outlook.com">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" 
+         alt="Email" class="social-img circle">
+  </a>
+
+</div>
+  </div>
+</section>
 
 </main>
 
@@ -285,7 +720,8 @@ body{
   </div>
 </footer>
 
-<a href="https://dumfriesbinblasters.co.uk/book" class="floating-book-btn">
+<a href="https://dumfriesbinblasters.co.uk/book"
+   class="floating-book-btn">
   Book Now
 </a>
 
@@ -316,4 +752,4 @@ body{
 </script>
 
 </body>
-</html>
+</html> 
