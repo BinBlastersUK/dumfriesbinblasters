@@ -53,12 +53,17 @@ body{
 
 @media (min-width: 1024px) {
 
-  .section.gallery-full .ba-pair{
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;   /* 🔑 prevents height collapse */
-    gap: 20px;
+  .section.gallery-full .ba-slider {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    justify-content: center;
   }
+
+  .section.gallery-full .ba-pair {
+    margin-bottom: 24px;
+  }
+
+}
 
   .section.gallery-full .ba-card{
     flex: 1 1 0;
