@@ -25,14 +25,25 @@
   ]
 }
 </script>
-  
+
 <style>
-/* BRAND COLOURS */
-:root{
-  --bg:#ffeb00;
-  --tint:#fff27a;
-  --text:#111827;
-  --green:#0f7a37;
+  /* BRAND COLOURS */
+  :root {
+    --bg:#ffeb00;
+    ...
+  }
+
+  /* === FIX DESKTOP BEFORE & AFTER WIDTH === */
+  .section.gallery-full .container {
+    max-width: 100%;
+  }
+
+  .section.gallery-full .ba-slider {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+</style>
+
 }
 
 *{box-sizing:border-box;}
