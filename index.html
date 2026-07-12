@@ -433,6 +433,21 @@ border-bottom:1px solid #2a2a2a;
   line-height:1.6;
 }
 
+/* FOOTER LINKS */
+.footer-links{
+    margin-top:12px;
+    font-size:14px;
+}
+
+.footer-links a{
+    color:var(--green);
+    text-decoration:none;
+}
+
+.footer-links a:hover{
+    text-decoration:underline;
+}
+
 /* SOCIAL ICONS */
 .social-links {
   margin-top: 25px;
@@ -1208,8 +1223,14 @@ body.menu-open{
 
 <footer class="site-footer">
   <div class="container">
-    © Dumfries Bin Blasters. All rights reserved.
-  </div>
+  <p>© Dumfries Bin Blasters. All rights reserved.</p>
+
+  <p class="footer-links">
+    <a href="/privacy.html">Privacy Policy</a> |
+    <a href="/terms.html">Terms &amp; Conditions</a> |
+    <a href="/cookies.html">Cookie Policy</a>
+  </p>
+</div>
 </footer>
 
 <a href="https://book.dumfriesbinblasters.co.uk"
