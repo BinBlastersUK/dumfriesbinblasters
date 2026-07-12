@@ -381,8 +381,57 @@ border-bottom:1px solid #2a2a2a;
 .review-stars{font-size:16px;color:var(--green);margin-bottom:6px;}
 .review-name{margin-top:8px;font-weight:700;color:var(--green);}
 
-/* FAQ */
-#faq h3{margin-top:26px;margin-bottom:6px;}
+/* FAQ ACCORDION */
+#faq{
+  background:#111;
+}
+
+#faq h2{
+  margin-bottom:26px;
+}
+
+.faq-item{
+  background:#1b1b1b;
+  border:1px solid #333;
+  border-radius:14px;
+  margin-bottom:14px;
+  overflow:hidden;
+}
+
+.faq-item summary{
+  cursor:pointer;
+  list-style:none;
+  padding:18px 52px 18px 18px;
+  font-size:18px;
+  font-weight:800;
+  position:relative;
+}
+
+.faq-item summary::-webkit-details-marker{
+  display:none;
+}
+
+.faq-item summary::after{
+  content:"+";
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--green);
+  font-size:28px;
+  font-weight:900;
+}
+
+.faq-item[open] summary::after{
+  content:"−";
+}
+
+.faq-item p{
+  margin:0;
+  padding:0 18px 18px;
+  color:#d4d4d4;
+  line-height:1.6;
+}
 
 /* SOCIAL ICONS */
 .social-links {
@@ -1084,30 +1133,30 @@ body.menu-open{
   <div class="container">
     <h2>FAQ</h2>
 
-    <div class="faq-item">
-      <h3>Do you collect the dirty water?</h3>
+    <details class="faq-item">
+      <summary>Do you collect the dirty water?</summary>
       <p>Yes — where required, we collect and dispose of dirty water responsibly.</p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>Do you clean inside and outside the bin?</h3>
+    <details class="faq-item">
+      <summary>Do you clean inside and outside the bin?</summary>
       <p>Yes. Every clean includes a full internal and external wash, sanitisation and deodorising.</p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>Do I need to leave my bin out?</h3>
+    <details class="faq-item">
+      <summary>Do I need to leave my bin out?</summary>
       <p>Yes. Please leave your bin accessible after it has been emptied and we'll take care of the rest.</p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>How often should my bin be cleaned?</h3>
+    <details class="faq-item">
+      <summary>How often should my bin be cleaned?</summary>
       <p>We recommend a monthly clean to keep your bin hygienic, fresh smelling and free from grime.</p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>When do I pay?</h3>
+    <details class="faq-item">
+      <summary>When do I pay?</summary>
       <p>Payment is due on the day of your clean by bank transfer or cash, unless agreed otherwise.</p>
-    </div>
+    </details>
 
   </div>
 </section>
