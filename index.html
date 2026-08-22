@@ -8,7 +8,7 @@
 
 <meta
   name="description"
-  content="Exterior cleaning services across Dumfries and surrounding areas. Wheelie bin cleaning, window cleaning, gutter clearing, fascia and soffit cleaning."
+  content="Exterior cleaning services across Dumfries and surrounding areas. Residential and commercial wheelie bin cleaning, window cleaning, gutter clearing, fascia and soffit cleaning."
 >
 
 <link
@@ -40,9 +40,13 @@
     {
       "@type": "Place",
       "name": "Thornhill"
+    },
+    {
+      "@type": "Place",
+      "name": "Hightae"
     }
   ],
-  "description": "Exterior cleaning services including wheelie bin cleaning, window cleaning, gutter clearing and fascia and soffit cleaning across Dumfries and surrounding areas.",
+  "description": "Residential and commercial exterior cleaning services including wheelie bin cleaning, window cleaning, gutter clearing and fascia and soffit cleaning across Dumfries and surrounding areas.",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Exterior Cleaning Services",
@@ -86,6 +90,7 @@
 </script>
 
 <style>
+
 :root{
   --bg:#111111;
   --tint:#1b1b1b;
@@ -119,6 +124,7 @@ body{
 }
 
 /* HEADER */
+
 .site-header{
   position:sticky;
   top:0;
@@ -160,13 +166,8 @@ body{
   color:#fff;
 }
 
-.button--secondary{
-  background:#242424;
-  color:#fff;
-  border:1px solid #3a3a3a;
-}
-
 /* HERO */
+
 .hero{
   padding:70px 0 50px;
   text-align:center;
@@ -233,10 +234,10 @@ body{
   margin-top:-6px;
   margin-bottom:16px;
   color:var(--green);
-  opacity:0.9;
 }
 
 /* SECTIONS */
+
 .section{
   padding:56px 0;
 }
@@ -257,6 +258,7 @@ body{
 }
 
 /* CARDS */
+
 .cards{
   display:grid;
   gap:18px;
@@ -292,9 +294,18 @@ body{
   min-height:100%;
 }
 
-.service-card .service-actions{
+.service-actions{
   margin-top:auto;
   padding-top:14px;
+}
+
+.service-scope{
+  color:var(--green) !important;
+  font-size:14px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.4px;
+  margin-bottom:8px;
 }
 
 .price{
@@ -308,7 +319,23 @@ body{
   opacity:.7;
 }
 
-/* GALLERY */
+/* AREAS */
+
+#areas ul{
+  padding-left:24px;
+}
+
+#areas li{
+  color:#fff;
+  margin-bottom:10px;
+}
+
+#areas li::marker{
+  color:var(--green);
+}
+
+/* BEFORE & AFTER */
+
 .section.gallery-full .container{
   max-width:100%;
 }
@@ -370,7 +397,8 @@ body{
   background:var(--green);
 }
 
-@media (min-width:1024px){
+@media(min-width:1024px){
+
   .section.gallery-full .ba-slider{
     flex-wrap:wrap;
     overflow-x:visible;
@@ -393,6 +421,7 @@ body{
 }
 
 /* COMMERCIAL GALLERY */
+
 .commercial-gallery-heading{
   margin-top:45px;
 }
@@ -436,13 +465,16 @@ body{
 }
 
 @media(max-width:500px){
+
   .commercial-clean-card{
     flex-basis:calc(100vw - 70px);
     max-width:360px;
   }
+
 }
 
 /* REVIEWS */
+
 .review-slider{
   display:flex;
   overflow-x:auto;
@@ -486,21 +518,8 @@ body{
   text-decoration:underline;
 }
 
-/* AREAS */
-#areas ul{
-  padding-left:24px;
-}
-
-#areas li{
-  color:#fff;
-  margin-bottom:10px;
-}
-
-#areas li::marker{
-  color:var(--green);
-}
-
 /* WHY CHOOSE */
+
 .why-choose-section{
   background:#181818;
 }
@@ -542,6 +561,7 @@ body{
 }
 
 /* FAQ */
+
 #faq{
   background:#111;
 }
@@ -594,6 +614,7 @@ body{
 }
 
 /* FOOTER */
+
 .footer-links{
   margin-top:12px;
   font-size:14px;
@@ -608,7 +629,8 @@ body{
   text-decoration:underline;
 }
 
-/* SOCIALS */
+/* SOCIAL ICONS */
+
 .social-links{
   margin-top:25px;
   display:flex;
@@ -636,7 +658,8 @@ body{
   transform:scale(1.15);
 }
 
-/* FLOATING BOOK BUTTON */
+/* FLOATING BOOK NOW - DESKTOP ONLY */
+
 .floating-book-btn{
   position:fixed;
   bottom:20px;
@@ -658,16 +681,15 @@ body{
   box-shadow:0 12px 28px rgba(0,0,0,0.35);
 }
 
+/* Prevent floating button covering mobile content */
 @media(max-width:768px){
   .floating-book-btn{
-    bottom:70px;
-    right:15px;
-    font-size:15px;
-    padding:14px 20px;
+    display:none;
   }
 }
 
 /* HAMBURGER */
+
 .menu-toggle{
   display:none;
   background:transparent;
@@ -687,7 +709,8 @@ body{
   transition:all 0.3s ease;
 }
 
-/* OVERLAY */
+/* MENU OVERLAY */
+
 .menu-overlay{
   position:fixed;
   inset:0;
@@ -708,7 +731,9 @@ body.menu-open{
 }
 
 /* MOBILE NAV */
+
 @media(max-width:900px){
+
   .menu-toggle{
     display:block;
   }
@@ -734,24 +759,29 @@ body.menu-open{
   }
 
   .nav.open{
-    max-height:520px;
+    max-height:560px;
   }
+
 }
 
 @media(min-width:901px){
+
   .nav{
     display:flex;
     position:static;
     max-height:none;
     flex-direction:row;
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header class="site-header">
+
   <div class="container header-row">
 
     <div style="font-weight:900;font-size:20px;">
@@ -765,6 +795,7 @@ body.menu-open{
     </button>
 
     <nav class="nav">
+
       <a href="#services">Services</a>
       <a href="#bin-cleaning">Bin Cleaning</a>
       <a href="#whyus">Why Us</a>
@@ -780,9 +811,11 @@ body.menu-open{
       >
         Book Now
       </a>
+
     </nav>
 
   </div>
+
 </header>
 
 <div class="menu-overlay"></div>
@@ -790,14 +823,18 @@ body.menu-open{
 <main id="home">
 
 <!-- HERO -->
+
 <section class="hero">
+
   <div class="container">
 
     <div class="hero-badge">
       <span>★★★★★</span> Rated 5.0 on Google
     </div>
 
-    <h1>Exterior Cleaning Services Across Dumfries &amp; Surrounding Areas</h1>
+    <h1>
+      Exterior Cleaning Services Across Dumfries &amp; Surrounding Areas
+    </h1>
 
     <p>
       Wheelie Bin Cleaning • Window Cleaning • Gutter Clearing • Fascia &amp; Soffit Cleaning
@@ -828,10 +865,13 @@ body.menu-open{
     </p>
 
   </div>
+
 </section>
 
 <!-- OUR SERVICES -->
+
 <section id="services" class="section section--tint">
+
   <div class="container">
 
     <h2 class="section-heading">Our Services</h2>
@@ -844,130 +884,186 @@ body.menu-open{
     <div class="cards">
 
       <div class="card service-card">
+
         <h3>🗑️ Wheelie Bin Cleaning</h3>
+
+        <p class="service-scope">
+          Residential &amp; Commercial
+        </p>
+
         <p>
           Regular and one-off wheelie bin cleaning for residential customers,
           plus commercial and large-bin cleaning.
         </p>
+
         <p>
           Bins are pressure washed, sanitised and deodorised after collection.
         </p>
 
         <div class="service-actions">
+
           <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
             Book Bin Cleaning
           </a>
+
         </div>
+
       </div>
 
       <div class="card service-card">
+
         <h3>🪟 Window Cleaning</h3>
-        <p>
-          Professional exterior window cleaning for homes across Dumfries and
-          surrounding areas.
+
+        <p class="service-scope">
+          Residential &amp; Commercial
         </p>
+
+        <p>
+          Professional exterior window cleaning for residential and commercial
+          properties across Dumfries and surrounding areas.
+        </p>
+
         <p>
           Regular and one-off cleaning available depending on location and property.
         </p>
 
         <div class="service-actions">
+
           <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
             Request a Quote
           </a>
+
         </div>
+
       </div>
 
       <div class="card service-card">
+
         <h3>🏠 Gutter Clearing</h3>
-        <p>
-          Gutter clearing using a professional gutter vacuum system from ground level.
+
+        <p class="service-scope">
+          Residential &amp; Commercial
         </p>
+
         <p>
-          Ideal for removing leaves, moss and built-up debris from residential gutters.
+          Gutter clearing for residential and commercial properties using a
+          professional gutter vacuum system from ground level.
+        </p>
+
+        <p>
+          Ideal for removing leaves, moss and built-up debris.
         </p>
 
         <div class="service-actions">
+
           <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
             Request a Quote
           </a>
+
         </div>
+
       </div>
 
       <div class="card service-card">
+
         <h3>🧽 Fascia &amp; Soffit Cleaning</h3>
-        <p>
-          Exterior cleaning for fascias and soffits to remove dirt, staining and
-          built-up grime.
+
+        <p class="service-scope">
+          Residential &amp; Commercial
         </p>
+
         <p>
-          Quoted based on the property and the amount of cleaning required.
+          Exterior fascia and soffit cleaning for residential and commercial
+          properties, helping remove dirt, staining and built-up grime.
+        </p>
+
+        <p>
+          Quoted based on the property and amount of cleaning required.
         </p>
 
         <div class="service-actions">
+
           <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
             Request a Quote
           </a>
+
         </div>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 <!-- HOW WE CLEAN BINS -->
+
 <section id="bin-cleaning" class="section">
+
   <div class="container">
 
     <h2>How We Clean Your Wheelie Bins</h2>
 
     <p class="section-intro">
-      Every wheelie-bin clean is designed to leave your bin cleaner, fresher and
-      more hygienic after collection.
+      Every wheelie-bin clean is designed to leave your bin cleaner,
+      fresher and more hygienic after collection.
     </p>
 
     <div class="cards">
 
       <div class="card">
+
         <h3>🧽 Deep Clean</h3>
+
         <p>
           Pressure washed inside and out to remove grime, dirt and residue.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>🦠 Sanitise</h3>
+
         <p>
           Sanitising treatment is applied to help reduce bacteria and unpleasant smells.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>🌸 Deodorise</h3>
+
         <p>
           Fresh bin scent is available as an optional add-on.
         </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 <!-- WHY US -->
+
 <section id="whyus" class="section section--tint">
+
   <div class="container">
 
     <h2>Why Choose Dumfries Bin Blasters?</h2>
@@ -975,48 +1071,66 @@ body.menu-open{
     <div class="cards">
 
       <div class="card">
+
         <h3>📍 Local Independent Business</h3>
+
         <p>
           A local service covering Dumfries and surrounding communities.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>🧼 More Than Bin Cleaning</h3>
+
         <p>
           Wheelie bins, windows, gutter clearing and fascia &amp; soffit cleaning
           are all available through one local business.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>⭐ Trusted by Local Customers</h3>
+
         <p>
           Proudly rated 5★ on Google and trusted by residential and commercial customers.
         </p>
+
       </div>
 
       <div class="card">
+
         <h3>📅 Easy Online Booking</h3>
+
         <p>
-          Book a bin clean or request a quote for another service through the online Booking Hub.
+          Book a bin clean or request a no-obligation quote for another service
+          through the online Booking Hub.
         </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 <!-- PRICING -->
+
 <section id="pricing" class="section">
+
   <div class="container">
 
     <h2>Wheelie Bin Cleaning Prices</h2>
 
-    <h3 style="margin-top:35px;">Regular Cleaning Plans</h3>
+    <h3 style="margin-top:35px;">
+      Regular Cleaning Plans
+    </h3>
 
-    <p class="pricing-intro">
+    <p class="section-intro">
       Bins are cleaned after collection based on your council schedule.
     </p>
 
@@ -1027,47 +1141,82 @@ body.menu-open{
     <div class="cards">
 
       <div class="card">
+
         <h3>Basic Clean</h3>
+
         <div class="price">
           £9
           <span style="font-size:16px;font-weight:500;">
             per clean
           </span>
         </div>
-        <p>1 bin • per clean</p>
+
+        <p>
+          1 bin • per clean
+        </p>
+
       </div>
 
       <div class="card">
+
         <h3>Combo Clean</h3>
+
         <div class="price">
           £14
           <span style="font-size:16px;font-weight:500;">
             per clean
           </span>
         </div>
-        <p>Any 2 bins • per clean</p>
+
+        <p>
+          Any 2 bins • per clean
+        </p>
+
       </div>
 
       <div class="card">
+
         <p style="color:#7ed321;font-weight:700;font-size:13px;margin:0 0 10px;">
           ⭐ MOST POPULAR
         </p>
 
         <h3>BinCare Standard</h3>
-        <div class="price">£20</div>
-        <p>3 bins + food caddy • per month</p>
+
+        <div class="price">
+          £20
+        </div>
+
+        <p>
+          3 bins + food caddy • per month
+        </p>
+
       </div>
 
       <div class="card">
+
         <h3>Full BinCare</h3>
-        <div class="price">£24</div>
-        <p>4 bins + food caddy • per month</p>
+
+        <div class="price">
+          £24
+        </div>
+
+        <p>
+          4 bins + food caddy • per month
+        </p>
+
       </div>
 
       <div class="card">
+
         <h3>Commercial &amp; Large Bin Cleaning</h3>
-        <p>360L–1100L bins • Businesses, flats &amp; shared properties</p>
-        <p>From £25 per month • Based on size, number of bins &amp; frequency</p>
+
+        <p>
+          360L–1100L bins • Businesses, flats &amp; shared properties
+        </p>
+
+        <p>
+          From £25 per month • Based on size, number of bins &amp; frequency
+        </p>
 
         <a
           class="button button--primary"
@@ -1075,83 +1224,132 @@ body.menu-open{
         >
           Get a Free Quote
         </a>
+
       </div>
 
     </div>
 
-    <h3 style="margin-top:45px;">One-Off Bin Cleaning</h3>
+    <h3 style="margin-top:45px;">
+      One-Off Bin Cleaning
+    </h3>
 
     <div class="cards">
 
       <div class="card">
+
         <h3>Residential One-Off Clean</h3>
-        <div class="price">From £15</div>
-        <p>✓ 240L wheelie bin — £15 per bin</p>
-        <p>✓ 360L wheelie bin — £20 per bin</p>
-        <p class="small">✓ Optional fresh scent +£1 per bin</p>
+
+        <div class="price">
+          From £15
+        </div>
+
+        <p>
+          ✓ 240L wheelie bin — £15 per bin
+        </p>
+
+        <p>
+          ✓ 360L wheelie bin — £20 per bin
+        </p>
+
+        <p class="small">
+          ✓ Optional fresh scent +£1 per bin
+        </p>
+
       </div>
 
     </div>
 
-    <h3 style="margin-top:45px;">Other Exterior Cleaning Services</h3>
+    <h3 style="margin-top:45px;">
+      Other Exterior Cleaning Services
+    </h3>
 
     <div class="cards">
 
       <div class="card service-card">
+
         <h3>🪟 Window Cleaning</h3>
+
+        <p class="service-scope">
+          Residential &amp; Commercial
+        </p>
+
         <p>
           Prices are based on the property and number of windows to be cleaned.
         </p>
 
         <div class="service-actions">
+
           <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
             Request a Quote
           </a>
+
         </div>
+
       </div>
 
       <div class="card service-card">
+
         <h3>🏠 Gutter Clearing</h3>
+
+        <p class="service-scope">
+          Residential &amp; Commercial
+        </p>
+
         <p>
           Quoted based on property size, access and the guttering that needs cleared.
         </p>
 
         <div class="service-actions">
+
           <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
             Request a Quote
           </a>
+
         </div>
+
       </div>
 
       <div class="card service-card">
+
         <h3>🧽 Fascia &amp; Soffit Cleaning</h3>
+
+        <p class="service-scope">
+          Residential &amp; Commercial
+        </p>
+
         <p>
           Quoted based on property size and the amount of fascia and soffit cleaning required.
         </p>
 
         <div class="service-actions">
+
           <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
             Request a Quote
           </a>
+
         </div>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 <!-- BEFORE & AFTER -->
+
 <section id="gallery" class="section gallery-full">
+
   <div class="container">
 
     <h2>Bin Cleaning Before &amp; After</h2>
@@ -1163,6 +1361,7 @@ body.menu-open{
     <div class="ba-slider">
 
       <div class="ba-pair">
+
         <div class="ba-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="ba1_before.jpg" alt="Residential wheelie bin before cleaning">
@@ -1172,9 +1371,11 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="ba1_after.jpg" alt="Residential wheelie bin after cleaning">
         </div>
+
       </div>
 
       <div class="ba-pair">
+
         <div class="ba-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="ba2_before.jpg" alt="Residential wheelie bin before cleaning">
@@ -1184,9 +1385,11 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="ba2_after.jpg" alt="Residential wheelie bin after cleaning">
         </div>
+
       </div>
 
       <div class="ba-pair">
+
         <div class="ba-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="ba3_before.jpg" alt="Residential wheelie bin before cleaning">
@@ -1196,9 +1399,11 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="ba3_after.jpg" alt="Residential wheelie bin after cleaning">
         </div>
+
       </div>
 
       <div class="ba-pair">
+
         <div class="ba-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="ba4_before.jpg" alt="Residential wheelie bin before cleaning">
@@ -1208,6 +1413,7 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="ba4_after.jpg" alt="Residential wheelie bin after cleaning">
         </div>
+
       </div>
 
     </div>
@@ -1219,6 +1425,7 @@ body.menu-open{
     <div class="commercial-gallery">
 
       <div class="commercial-clean-card">
+
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial1_before.jpg" alt="Commercial bin before cleaning">
@@ -1228,9 +1435,11 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial1_after.jpg" alt="Commercial bin after cleaning">
         </div>
+
       </div>
 
       <div class="commercial-clean-card">
+
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial2_before.jpg" alt="Commercial bin before cleaning">
@@ -1240,9 +1449,11 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial2_after.jpg" alt="Commercial bin after cleaning">
         </div>
+
       </div>
 
       <div class="commercial-clean-card">
+
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial3_before.jpg" alt="Commercial bin before cleaning">
@@ -1252,9 +1463,11 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial3_after.jpg" alt="Commercial bin after cleaning">
         </div>
+
       </div>
 
       <div class="commercial-clean-card">
+
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial4_before.jpg" alt="Commercial bin before cleaning">
@@ -1264,9 +1477,11 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial4_after.jpg" alt="Commercial bin after cleaning">
         </div>
+
       </div>
 
       <div class="commercial-clean-card">
+
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial5_before.jpg" alt="Commercial bin before cleaning">
@@ -1276,9 +1491,11 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial5_after.jpg" alt="Commercial bin after cleaning">
         </div>
+
       </div>
 
       <div class="commercial-clean-card">
+
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial6_before_front.jpg" alt="Commercial bin before cleaning">
@@ -1288,9 +1505,11 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial6_after_front.jpg" alt="Commercial bin after cleaning">
         </div>
+
       </div>
 
       <div class="commercial-clean-card">
+
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial7_before.jpg" alt="Commercial bin before cleaning">
@@ -1300,15 +1519,19 @@ body.menu-open{
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial7_after.jpg" alt="Commercial bin after cleaning">
         </div>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
-<!-- WHY CHOOSE US -->
+<!-- WHY CUSTOMERS CHOOSE US -->
+
 <section class="section why-choose-section">
+
   <div class="container">
 
     <h2>Why Customers Choose Us</h2>
@@ -1348,10 +1571,13 @@ body.menu-open{
     </div>
 
   </div>
+
 </section>
 
 <!-- REVIEWS -->
+
 <section id="reviews" class="section section--tint">
+
   <div class="container">
 
     <h2>Google Reviews</h2>
@@ -1371,48 +1597,91 @@ body.menu-open{
     <div class="review-slider">
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+
+        <div class="review-stars">
+          ★★★★★
+        </div>
+
         <p>
-          “I am so impressed with the service from Bin Blasters. Bins are always spotless and put back to where they belong. I cannot praise them more highly and the customer service is excellent. Thank you!”
+          “I am so impressed with the service from Bin Blasters. Bins are always
+          spotless and put back to where they belong. I cannot praise them more
+          highly and the customer service is excellent. Thank you!”
         </p>
-        <div class="review-name">— Linda A.</div>
+
+        <div class="review-name">
+          — Linda A.
+        </div>
+
       </div>
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+
+        <div class="review-stars">
+          ★★★★★
+        </div>
+
         <p>
           “Amazing service from start to finish and always keeps in touch, very reliable.”
         </p>
-        <div class="review-name">— Mary M.</div>
+
+        <div class="review-name">
+          — Mary M.
+        </div>
+
       </div>
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+
+        <div class="review-stars">
+          ★★★★★
+        </div>
+
         <p>
           “Great service as always! Bin always smells amazing 😍”
         </p>
-        <div class="review-name">— Toni W.</div>
+
+        <div class="review-name">
+          — Toni W.
+        </div>
+
       </div>
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+
+        <div class="review-stars">
+          ★★★★★
+        </div>
+
         <p>
           “Very good clean and my bins never been so clean in a long time, smells great too.”
         </p>
-        <div class="review-name">— Karen T.</div>
+
+        <div class="review-name">
+          — Karen T.
+        </div>
+
       </div>
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+
+        <div class="review-stars">
+          ★★★★★
+        </div>
+
         <p>
           “Makes a great job, reasonable and very reliable 🙂”
         </p>
-        <div class="review-name">— Diane Y.</div>
+
+        <div class="review-name">
+          — Diane Y.
+        </div>
+
       </div>
 
     </div>
 
     <div style="margin-top:18px;">
+
       <a
         class="button button--primary"
         href="https://g.page/r/CfeEyhoYVESPEBM/review"
@@ -1421,13 +1690,17 @@ body.menu-open{
       >
         Read Verified Google Reviews
       </a>
+
     </div>
 
   </div>
+
 </section>
 
 <!-- AREAS -->
+
 <section id="areas" class="section">
+
   <div class="container">
 
     <h2>Areas We Cover</h2>
@@ -1446,78 +1719,129 @@ body.menu-open{
     </p>
 
   </div>
+
 </section>
 
 <!-- FAQ -->
+
 <section id="faq" class="section">
+
   <div class="container">
 
     <h2>FAQ</h2>
 
     <details class="faq-item">
-      <summary>What services do you offer?</summary>
+
+      <summary>
+        What services do you offer?
+      </summary>
+
       <p>
         Dumfries Bin Blasters offers wheelie bin cleaning, window cleaning,
-        gutter clearing and fascia &amp; soffit cleaning.
+        gutter clearing and fascia &amp; soffit cleaning for residential and
+        commercial customers.
       </p>
+
     </details>
 
     <details class="faq-item">
-      <summary>Do you clean inside and outside wheelie bins?</summary>
+
+      <summary>
+        Do you clean inside and outside wheelie bins?
+      </summary>
+
       <p>
-        Yes. Wheelie-bin cleaning includes an internal and external wash and sanitising treatment.
+        Yes. Wheelie-bin cleaning includes an internal and external wash and
+        sanitising treatment.
       </p>
+
     </details>
 
     <details class="faq-item">
-      <summary>Do I need to leave my bin out?</summary>
+
+      <summary>
+        Do I need to leave my bin out?
+      </summary>
+
       <p>
-        Yes. Please leave your bin accessible after it has been emptied and we'll take care of the rest.
+        Yes. Please leave your bin accessible after it has been emptied and
+        we'll take care of the rest.
       </p>
+
     </details>
 
     <details class="faq-item">
-      <summary>How do window cleaning quotes work?</summary>
+
+      <summary>
+        How do window cleaning quotes work?
+      </summary>
+
       <p>
-        Window cleaning prices depend on the property and the number of windows to be cleaned.
-        Submit a quote request through the Booking Hub and I'll confirm the price.
+        Window cleaning is available for residential and commercial properties.
+        Prices depend on the property and the number of windows to be cleaned.
+        Submit a no-obligation quote request through the Booking Hub and I'll
+        confirm the price.
       </p>
+
     </details>
 
     <details class="faq-item">
-      <summary>How are gutters cleared?</summary>
+
+      <summary>
+        How are gutters cleared?
+      </summary>
+
       <p>
-        Gutter clearing is carried out using a professional gutter vacuum system,
-        allowing the gutters to be cleared from ground level where suitable.
+        Residential and commercial gutter clearing is carried out using a
+        professional gutter vacuum system, allowing gutters to be cleared from
+        ground level where suitable.
       </p>
+
     </details>
 
     <details class="faq-item">
-      <summary>Do you clean fascias and soffits?</summary>
+
+      <summary>
+        Do you clean fascias and soffits?
+      </summary>
+
       <p>
-        Yes. Fascia and soffit cleaning is available and is quoted based on the property
-        and the amount of cleaning required.
+        Yes. Residential and commercial fascia and soffit cleaning is available
+        and is quoted based on the property and the amount of cleaning required.
       </p>
+
     </details>
 
     <details class="faq-item">
-      <summary>When do I pay?</summary>
+
+      <summary>
+        When do I pay?
+      </summary>
+
       <p>
-        Payment is due on the day of your clean by bank transfer or cash, unless agreed otherwise.
+        Payment is due on the day of your clean by bank transfer or cash,
+        unless agreed otherwise.
       </p>
+
     </details>
 
   </div>
+
 </section>
 
-<!-- CTA -->
+<!-- FINAL CTA -->
+
 <section class="section">
+
   <div class="container center">
 
-    <h2>Need a Clean or Quote?</h2>
+    <h2>
+      Need a Clean or Quote?
+    </h2>
 
     <p class="local-trust">
-      Book wheelie-bin cleaning or request a quote for windows, gutters or fascia &amp; soffit cleaning.
+      Book wheelie-bin cleaning or request a no-obligation quote for windows,
+      gutters or fascia &amp; soffit cleaning.
     </p>
 
     <a
@@ -1578,32 +1902,53 @@ body.menu-open{
       </a>
 
       <a href="mailto:dumfriesbinblasters@outlook.com">
+
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg"
           alt="Email"
           class="social-img circle"
         >
+
       </a>
 
     </div>
 
   </div>
+
 </section>
 
 </main>
 
 <footer class="site-footer">
+
   <div class="container">
 
-    <p>© Dumfries Bin Blasters. All rights reserved.</p>
+    <p>
+      © Dumfries Bin Blasters. All rights reserved.
+    </p>
 
     <p class="footer-links">
-      <a href="/privacy.html">Privacy Policy</a> |
-      <a href="/terms.html">Terms &amp; Conditions</a> |
-      <a href="/cookies.html">Cookie Policy</a>
+
+      <a href="/privacy.html">
+        Privacy Policy
+      </a>
+
+      |
+
+      <a href="/terms.html">
+        Terms &amp; Conditions
+      </a>
+
+      |
+
+      <a href="/cookies.html">
+        Cookie Policy
+      </a>
+
     </p>
 
   </div>
+
 </footer>
 
 <a
@@ -1614,29 +1959,39 @@ body.menu-open{
 </a>
 
 <script>
+
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const overlay = document.querySelector('.menu-overlay');
 
 toggle.addEventListener('click', () => {
+
   nav.classList.toggle('open');
   overlay.classList.toggle('active');
   document.body.classList.toggle('menu-open');
+
 });
 
 overlay.addEventListener('click', () => {
+
   nav.classList.remove('open');
   overlay.classList.remove('active');
   document.body.classList.remove('menu-open');
+
 });
 
 nav.querySelectorAll('a').forEach(link => {
+
   link.addEventListener('click', () => {
+
     nav.classList.remove('open');
     overlay.classList.remove('active');
     document.body.classList.remove('menu-open');
+
   });
+
 });
+
 </script>
 
 </body>
