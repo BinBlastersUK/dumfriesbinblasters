@@ -658,7 +658,7 @@ body{
   transform:scale(1.15);
 }
 
-/* FLOATING BOOK NOW - DESKTOP ONLY */
+/* FLOATING BOOK NOW BUTTON */
 
 .floating-book-btn{
   position:fixed;
@@ -681,10 +681,15 @@ body{
   box-shadow:0 12px 28px rgba(0,0,0,0.35);
 }
 
-/* Prevent floating button covering mobile content */
+/* MOBILE FLOATING BOOK NOW BUTTON */
+
 @media(max-width:768px){
   .floating-book-btn{
-    display:none;
+    display:block;
+    bottom:70px;
+    right:15px;
+    font-size:15px;
+    padding:14px 20px;
   }
 }
 
