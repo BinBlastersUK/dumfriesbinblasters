@@ -145,6 +145,47 @@ body{
   padding:12px 0;
 }
 
+.header-brand{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  flex-shrink:0;
+}
+
+.header-business-name{
+  font-weight:900;
+  font-size:20px;
+}
+
+.header-phone{
+  color:var(--green);
+  text-decoration:none;
+  font-weight:800;
+  font-size:14px;
+}
+
+.header-phone:hover{
+  text-decoration:underline;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.mobile-call{
+  display:none;
+  color:#ffffff;
+  background:var(--green);
+  text-decoration:none;
+  font-weight:900;
+  font-size:14px;
+  padding:9px 12px;
+  border-radius:8px;
+  white-space:nowrap;
+}
+
 .nav{
   z-index:30;
 }
@@ -754,6 +795,22 @@ body.menu-open{
 
 @media(max-width:900px){
 
+  .header-phone{
+    display:none;
+  }
+
+  .header-business-name{
+    font-size:18px;
+  }
+
+  .header-actions{
+    margin-left:auto;
+  }
+
+  .mobile-call{
+    display:inline-block;
+  }
+
   .menu-toggle{
     display:block;
   }
@@ -804,15 +861,37 @@ body.menu-open{
 
   <div class="container header-row">
 
-    <div style="font-weight:900;font-size:20px;">
-      Dumfries Bin Blasters
+    <div class="header-brand">
+
+      <div class="header-business-name">
+        Dumfries Bin Blasters
+      </div>
+
+      <a
+        class="header-phone"
+        href="tel:07935739514"
+      >
+        📞 07935 739514
+      </a>
+
     </div>
 
-    <button class="menu-toggle" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div class="header-actions">
+
+      <a
+        class="mobile-call"
+        href="tel:07935739514"
+      >
+        📞 Call
+      </a>
+
+      <button class="menu-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
 
     <nav class="nav">
 
