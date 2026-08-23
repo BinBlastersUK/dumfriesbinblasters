@@ -55,28 +55,32 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Wheelie Bin Cleaning"
+          "name": "Wheelie Bin Cleaning",
+          "url": "https://dumfriesbinblasters.co.uk/wheelie-bin-cleaning/"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Window Cleaning"
+          "name": "Window Cleaning",
+          "url": "https://dumfriesbinblasters.co.uk/window-cleaning/"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Gutter Clearing"
+          "name": "Gutter Clearing",
+          "url": "https://dumfriesbinblasters.co.uk/gutter-cleaning/"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Fascia and Soffit Cleaning"
+          "name": "Fascia and Soffit Cleaning",
+          "url": "https://dumfriesbinblasters.co.uk/fascia-soffit-cleaning/"
         }
       }
     ]
@@ -153,6 +157,8 @@ body{
   font-size:14px;
 }
 
+/* BUTTONS */
+
 .button{
   display:inline-block;
   padding:12px 18px;
@@ -164,6 +170,17 @@ body{
 .button--primary{
   background:var(--green);
   color:#fff;
+}
+
+.button--secondary{
+  border:2px solid var(--green);
+  color:#fff;
+  margin-right:8px;
+  margin-bottom:8px;
+}
+
+.service-actions .button{
+  margin-top:6px;
 }
 
 /* HERO */
@@ -229,10 +246,10 @@ body{
 }
 
 .local-trust{
-  font-size:14px;
-  font-weight:600;
-  margin-top:-6px;
-  margin-bottom:16px;
+  font-size:14px !important;
+  font-weight:700;
+  margin-top:-6px !important;
+  margin-bottom:18px !important;
   color:var(--green);
 }
 
@@ -681,8 +698,6 @@ body{
   box-shadow:0 12px 28px rgba(0,0,0,0.35);
 }
 
-/* MOBILE FLOATING BOOK NOW BUTTON */
-
 @media(max-width:768px){
   .floating-book-btn{
     display:block;
@@ -764,7 +779,7 @@ body.menu-open{
   }
 
   .nav.open{
-    max-height:560px;
+    max-height:620px;
   }
 
 }
@@ -845,6 +860,10 @@ body.menu-open{
       Wheelie Bin Cleaning • Window Cleaning • Gutter Clearing • Fascia &amp; Soffit Cleaning
     </p>
 
+    <p class="local-trust">
+      Join hundreds of happy customers across Dumfries &amp; surrounding areas.
+    </p>
+
     <a
       class="button button--primary"
       href="https://book.dumfriesbinblasters.co.uk"
@@ -888,6 +907,8 @@ body.menu-open{
 
     <div class="cards">
 
+      <!-- BIN CLEANING -->
+
       <div class="card service-card">
 
         <h3>🗑️ Wheelie Bin Cleaning</h3>
@@ -908,6 +929,13 @@ body.menu-open{
         <div class="service-actions">
 
           <a
+            class="button button--secondary"
+            href="/wheelie-bin-cleaning/"
+          >
+            Learn More
+          </a>
+
+          <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
@@ -917,6 +945,8 @@ body.menu-open{
         </div>
 
       </div>
+
+      <!-- WINDOW CLEANING -->
 
       <div class="card service-card">
 
@@ -938,6 +968,13 @@ body.menu-open{
         <div class="service-actions">
 
           <a
+            class="button button--secondary"
+            href="/window-cleaning/"
+          >
+            Learn More
+          </a>
+
+          <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
@@ -947,6 +984,8 @@ body.menu-open{
         </div>
 
       </div>
+
+      <!-- GUTTER CLEARING -->
 
       <div class="card service-card">
 
@@ -968,6 +1007,13 @@ body.menu-open{
         <div class="service-actions">
 
           <a
+            class="button button--secondary"
+            href="/gutter-cleaning/"
+          >
+            Learn More
+          </a>
+
+          <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
@@ -977,6 +1023,8 @@ body.menu-open{
         </div>
 
       </div>
+
+      <!-- FASCIA & SOFFIT -->
 
       <div class="card service-card">
 
@@ -996,6 +1044,13 @@ body.menu-open{
         </p>
 
         <div class="service-actions">
+
+          <a
+            class="button button--secondary"
+            href="/fascia-soffit-cleaning/"
+          >
+            Learn More
+          </a>
 
           <a
             class="button button--primary"
@@ -1058,6 +1113,17 @@ body.menu-open{
         </p>
 
       </div>
+
+    </div>
+
+    <div style="margin-top:22px;">
+
+      <a
+        class="button button--secondary"
+        href="/wheelie-bin-cleaning/"
+      >
+        Learn More About Bin Cleaning
+      </a>
 
     </div>
 
@@ -1285,6 +1351,13 @@ body.menu-open{
         <div class="service-actions">
 
           <a
+            class="button button--secondary"
+            href="/window-cleaning/"
+          >
+            Learn More
+          </a>
+
+          <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
@@ -1310,6 +1383,13 @@ body.menu-open{
         <div class="service-actions">
 
           <a
+            class="button button--secondary"
+            href="/gutter-cleaning/"
+          >
+            Learn More
+          </a>
+
+          <a
             class="button button--primary"
             href="https://book.dumfriesbinblasters.co.uk"
           >
@@ -1333,6 +1413,13 @@ body.menu-open{
         </p>
 
         <div class="service-actions">
+
+          <a
+            class="button button--secondary"
+            href="/fascia-soffit-cleaning/"
+          >
+            Learn More
+          </a>
 
           <a
             class="button button--primary"
@@ -1430,101 +1517,80 @@ body.menu-open{
     <div class="commercial-gallery">
 
       <div class="commercial-clean-card">
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial1_before.jpg" alt="Commercial bin before cleaning">
         </div>
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial1_after.jpg" alt="Commercial bin after cleaning">
         </div>
-
       </div>
 
       <div class="commercial-clean-card">
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial2_before.jpg" alt="Commercial bin before cleaning">
         </div>
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial2_after.jpg" alt="Commercial bin after cleaning">
         </div>
-
       </div>
 
       <div class="commercial-clean-card">
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial3_before.jpg" alt="Commercial bin before cleaning">
         </div>
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial3_after.jpg" alt="Commercial bin after cleaning">
         </div>
-
       </div>
 
       <div class="commercial-clean-card">
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial4_before.jpg" alt="Commercial bin before cleaning">
         </div>
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial4_after.jpg" alt="Commercial bin after cleaning">
         </div>
-
       </div>
 
       <div class="commercial-clean-card">
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial5_before.jpg" alt="Commercial bin before cleaning">
         </div>
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial5_after.jpg" alt="Commercial bin after cleaning">
         </div>
-
       </div>
 
       <div class="commercial-clean-card">
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial6_before_front.jpg" alt="Commercial bin before cleaning">
         </div>
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial6_after_front.jpg" alt="Commercial bin after cleaning">
         </div>
-
       </div>
 
       <div class="commercial-clean-card">
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--before">Before</span>
           <img src="commercial7_before.jpg" alt="Commercial bin before cleaning">
         </div>
-
         <div class="commercial-image-card">
           <span class="ba-label ba-label--after">After</span>
           <img src="commercial7_after.jpg" alt="Commercial bin after cleaning">
         </div>
-
       </div>
 
     </div>
@@ -1602,85 +1668,45 @@ body.menu-open{
     <div class="review-slider">
 
       <div class="review-card">
-
-        <div class="review-stars">
-          ★★★★★
-        </div>
-
+        <div class="review-stars">★★★★★</div>
         <p>
           “I am so impressed with the service from Bin Blasters. Bins are always
           spotless and put back to where they belong. I cannot praise them more
           highly and the customer service is excellent. Thank you!”
         </p>
-
-        <div class="review-name">
-          — Linda A.
-        </div>
-
+        <div class="review-name">— Linda A.</div>
       </div>
 
       <div class="review-card">
-
-        <div class="review-stars">
-          ★★★★★
-        </div>
-
+        <div class="review-stars">★★★★★</div>
         <p>
           “Amazing service from start to finish and always keeps in touch, very reliable.”
         </p>
-
-        <div class="review-name">
-          — Mary M.
-        </div>
-
+        <div class="review-name">— Mary M.</div>
       </div>
 
       <div class="review-card">
-
-        <div class="review-stars">
-          ★★★★★
-        </div>
-
+        <div class="review-stars">★★★★★</div>
         <p>
           “Great service as always! Bin always smells amazing 😍”
         </p>
-
-        <div class="review-name">
-          — Toni W.
-        </div>
-
+        <div class="review-name">— Toni W.</div>
       </div>
 
       <div class="review-card">
-
-        <div class="review-stars">
-          ★★★★★
-        </div>
-
+        <div class="review-stars">★★★★★</div>
         <p>
           “Very good clean and my bins never been so clean in a long time, smells great too.”
         </p>
-
-        <div class="review-name">
-          — Karen T.
-        </div>
-
+        <div class="review-name">— Karen T.</div>
       </div>
 
       <div class="review-card">
-
-        <div class="review-stars">
-          ★★★★★
-        </div>
-
+        <div class="review-stars">★★★★★</div>
         <p>
           “Makes a great job, reasonable and very reliable 🙂”
         </p>
-
-        <div class="review-name">
-          — Diane Y.
-        </div>
-
+        <div class="review-name">— Diane Y.</div>
       </div>
 
     </div>
@@ -1845,6 +1871,10 @@ body.menu-open{
     </h2>
 
     <p class="local-trust">
+      Join hundreds of happy customers across Dumfries &amp; surrounding areas.
+    </p>
+
+    <p>
       Book wheelie-bin cleaning or request a no-obligation quote for windows,
       gutters or fascia &amp; soffit cleaning.
     </p>
