@@ -693,27 +693,59 @@ body{
   margin-top:25px;
   display:flex;
   justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  flex-wrap:nowrap;
+}
+
+.social-links a{
+  width:56px;
+  height:56px;
+  flex:0 0 56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#ffffff;
+  box-shadow:0 2px 6px #0002;
 }
 
 .social-links img{
-  width:64px;
-  height:64px;
+  width:46px;
+  height:46px;
   object-fit:contain;
   display:block;
   transition:transform .2s ease;
 }
 
 .circle{
-  padding:2px;
-  border-radius:50%;
-  background:#ffffff;
-  box-shadow:0 2px 6px #0002;
+  padding:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
 }
 
 .social-links a:hover img{
-  transform:scale(1.15);
+  transform:scale(1.1);
+}
+
+@media(max-width:500px){
+
+  .social-links{
+    gap:8px;
+  }
+
+  .social-links a{
+    width:50px;
+    height:50px;
+    flex-basis:50px;
+  }
+
+  .social-links img{
+    width:41px;
+    height:41px;
+  }
+
 }
 
 /* FLOATING BOOK NOW BUTTON */
@@ -1225,19 +1257,6 @@ body.menu-open{
       </div>
 
     </div>
-
-    <div style="margin-top:22px;">
-
-      <a
-        class="button button--secondary"
-        href="/wheelie-bin-cleaning/"
-      >
-        Learn More About Bin Cleaning
-      </a>
-
-    </div>
-
-  </div>
 
 </section>
 
