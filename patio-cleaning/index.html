@@ -74,6 +74,45 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--te
 .window-label--before{background:#c0392b}
 .window-label--after{background:var(--green)}
 @media(max-width:700px){.window-pair{grid-template-columns:1fr}.window-gallery-card img{min-height:0;height:auto;max-height:none;object-fit:contain}}
+
+/* SWIPEABLE PATIO GALLERY */
+.window-gallery{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.window-gallery::-webkit-scrollbar{display:none}
+.window-pair{
+  flex:0 0 100%;
+  scroll-snap-align:start;
+}
+.gallery-controls{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  margin-top:22px;
+}
+.gallery-arrow{
+  background:var(--green);
+  color:#fff;
+  border:0;
+  border-radius:50%;
+  width:42px;
+  height:42px;
+  font-size:24px;
+  font-weight:900;
+  cursor:pointer;
+}
+.gallery-counter{
+  font-size:14px;
+  font-weight:700;
+  color:#d4d4d4;
+}
+
 /* AREAS */
 .area-list{padding-left:24px}
 .area-list li{margin-bottom:10px}
@@ -161,18 +200,37 @@ body.menu-open{overflow:hidden}
   <div class="container">
     <h2>Patio Cleaning Before &amp; After</h2>
     <p class="section-intro">See the difference from a real patio cleaning job carried out by Dumfries Bin Blasters.</p>
-    <div class="window-gallery">
-      <div class="window-pair">
-        <div class="window-gallery-card">
-          <span class="window-label window-label--before">Before</span>
-          <img src="patio-cleaning-dumfries-before.webp" alt="Patio before cleaning by Dumfries Bin Blasters" loading="lazy">
-        </div>
-        <div class="window-gallery-card">
-          <span class="window-label window-label--after">After</span>
-          <img src="patio-cleaning-dumfries-after.webp" alt="Patio after cleaning by Dumfries Bin Blasters" loading="lazy">
-        </div>
-      </div>
+    <div class="window-gallery" id="patio-gallery">
+  <!-- JOB 1 -->
+  <div class="window-pair">
+    <div class="window-gallery-card">
+      <span class="window-label window-label--before">Before</span>
+      <img src="patio-cleaning-dumfries-before.webp" alt="Patio before cleaning in Dumfries" loading="lazy">
     </div>
+    <div class="window-gallery-card">
+      <span class="window-label window-label--after">After</span>
+      <img src="patio-cleaning-dumfries-after.webp" alt="Patio after cleaning in Dumfries" loading="lazy">
+    </div>
+  </div>
+  <!-- JOB 2 -->
+  <div class="window-pair">
+    <div class="window-gallery-card">
+      <span class="window-label window-label--before">Before</span>
+      <img src="patio-cleaning-dumfries-2-before.webp" alt="Paved area before cleaning in Dumfries" loading="lazy">
+    </div>
+    <div class="window-gallery-card">
+      <span class="window-label window-label--after">After</span>
+      <img src="patio-cleaning-dumfries-2-after.webp" alt="Paved area after cleaning in Dumfries" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<div class="gallery-controls">
+  <button class="gallery-arrow" id="gallery-prev" aria-label="Previous cleaning job">‹</button>
+  <span class="gallery-counter" id="gallery-counter">1 of 2</span>
+  <button class="gallery-arrow" id="gallery-next" aria-label="Next cleaning job">›</button>
+</div>
+
   </div>
 </section>
 <!-- WHY CHOOSE -->
@@ -244,6 +302,25 @@ const overlay=document.querySelector('.menu-overlay');
 toggle.addEventListener('click',()=>{nav.classList.toggle('open');overlay.classList.toggle('active');document.body.classList.toggle('menu-open')});
 overlay.addEventListener('click',()=>{nav.classList.remove('open');overlay.classList.remove('active');document.body.classList.remove('menu-open')});
 nav.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{nav.classList.remove('open');overlay.classList.remove('active');document.body.classList.remove('menu-open')})});
+/* PATIO GALLERY CONTROLS */
+const gallery = document.getElementById('patio-gallery');
+const slides = gallery.querySelectorAll('.window-pair');
+const counter = document.getElementById('gallery-counter');
+
+function updateGalleryCounter() {
+  const current = Math.round(gallery.scrollLeft / gallery.clientWidth);
+  counter.textContent = `${current + 1} of ${slides.length}`;
+}
+
+document.getElementById('gallery-prev').addEventListener('click', () => {
+  gallery.scrollBy({left: -gallery.clientWidth, behavior: 'smooth'});
+});
+
+document.getElementById('gallery-next').addEventListener('click', () => {
+  gallery.scrollBy({left: gallery.clientWidth, behavior: 'smooth'});
+});
+
+gallery.addEventListener('scroll', updateGalleryCounter);
 </script>
 </body>
 </html>
