@@ -308,10 +308,17 @@ const gallery = document.getElementById('patio-gallery');
 const slides = gallery.querySelectorAll('.window-pair');
 const counter = document.getElementById('gallery-counter');
 
+
 function updateGalleryCounter() {
-  const current = Math.round(gallery.scrollLeft / gallery.clientWidth);
+  const current = Math.max(0, Math.min(
+    slides.length - 1,
+    Math.round(gallery.scrollLeft / gallery.clientWidth)
+  ));
+
   counter.textContent = `${current + 1} of ${slides.length}`;
+  gallery.style.height = `${slides[current].offsetHeight}px`;
 }
+
 
 document.getElementById('gallery-prev').addEventListener('click', () => {
   gallery.scrollBy({left: -gallery.clientWidth, behavior: 'smooth'});
@@ -322,6 +329,9 @@ document.getElementById('gallery-next').addEventListener('click', () => {
 });
 
 gallery.addEventListener('scroll', updateGalleryCounter);
+window.addEventListener('load', updateGalleryCounter);
+window.addEventListener('resize', updateGalleryCounter);
+gallery.querySelectorAll('img').forEach(img => img.addEventListener('load', updateGalleryCounter));
 </script>
 </body>
 </html>
