@@ -288,15 +288,99 @@ body{
   font-weight:900;
 }
 
-/* BEFORE AFTER */
+/* BEFORE AFTER GALLERY */
 
-.gallery-placeholder{
-  border:2px dashed #444;
+.gutter-gallery{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding:10px 0 22px;
+  -webkit-overflow-scrolling:touch;
+}
+
+.gutter-gallery::-webkit-scrollbar{
+  height:6px;
+}
+
+.gutter-gallery::-webkit-scrollbar-thumb{
+  background:#5FAF18;
+  border-radius:10px;
+}
+
+.gutter-job{
+  flex:0 0 100%;
+  min-width:0;
+  scroll-snap-align:start;
+  background:#181818;
+  border:1px solid #333;
   border-radius:18px;
-  padding:40px 20px;
+  padding:16px;
+}
+
+.gutter-job h3{
+  margin:0 0 16px;
+  color:#ffffff;
+}
+
+.gutter-photos{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.gutter-photo{
+  margin:0;
+  min-width:0;
+}
+
+.gutter-photo img{
+  display:block;
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.gutter-photo figcaption{
+  text-align:center;
+  font-weight:900;
+  padding:10px 0;
+}
+
+.gutter-before{
+  color:#ff7777;
+}
+
+.gutter-after{
+  color:#7ed321;
+}
+
+.gutter-extra{
+  margin-top:16px;
+}
+
+.gutter-gallery-hint{
   text-align:center;
   color:#bbbbbb;
-  background:#181818;
+  font-size:14px;
+  margin-top:10px;
+}
+
+@media(max-width:600px){
+
+  .gutter-photos{
+    grid-template-columns:1fr;
+  }
+
+  .gutter-photo img{
+    height:auto;
+    max-height:420px;
+    object-fit:contain;
+    background:#111;
+  }
+
 }
 
 /* AREAS */
@@ -712,11 +796,85 @@ body.menu-open{
 
     </p>
 
-    <div class="gallery-placeholder">
+<div class="gutter-gallery">
 
-      Gutter clearing before &amp; after photos coming soon.
-
+  <!-- CUSTOMER 1 -->
+  <div class="gutter-job">
+    <h3>Gutter Clearing – Customer 1</h3>
+    <div class="gutter-photos">
+      <figure class="gutter-photo">
+        <img src="gutter-customer-1-before.webp" alt="Customer 1 gutter before clearing" loading="lazy">
+        <figcaption class="gutter-before">Before</figcaption>
+      </figure>
+      <figure class="gutter-photo">
+        <img src="gutter-customer-1-after.webp" alt="Customer 1 gutter after clearing" loading="lazy">
+        <figcaption class="gutter-after">After</figcaption>
+      </figure>
     </div>
+  </div>
+
+  <!-- CUSTOMER 2 -->
+  <div class="gutter-job">
+    <h3>Gutter Clearing – Customer 2</h3>
+    <div class="gutter-photos">
+      <figure class="gutter-photo">
+        <img src="gutter-customer-2-before.webp" alt="Customer 2 gutter before clearing" loading="lazy">
+        <figcaption class="gutter-before">Before</figcaption>
+      </figure>
+      <figure class="gutter-photo">
+        <img src="gutter-customer-2-additional.webp" alt="Additional gutter photograph from customer 2" loading="lazy">
+        <figcaption>Additional Photo</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- CUSTOMER 3 -->
+  <div class="gutter-job">
+    <h3>Gutter Clearing – Customer 3</h3>
+    <div class="gutter-photos">
+      <figure class="gutter-photo">
+        <img src="gutter-customer-3-before.webp" alt="Customer 3 gutter before clearing" loading="lazy">
+        <figcaption class="gutter-before">Before</figcaption>
+      </figure>
+      <figure class="gutter-photo">
+        <img src="gutter-customer-3-after.webp" alt="Customer 3 gutter after clearing" loading="lazy">
+        <figcaption class="gutter-after">After</figcaption>
+      </figure>
+    </div>
+
+    <div class="gutter-photos gutter-extra">
+      <figure class="gutter-photo">
+        <img src="gutter-customer-3-section-2-before.webp" alt="Customer 3 second gutter section before clearing" loading="lazy">
+        <figcaption class="gutter-before">Before – Section 2</figcaption>
+      </figure>
+      <figure class="gutter-photo">
+        <img src="gutter-customer-3-section-2-after.webp" alt="Customer 3 second gutter section after clearing" loading="lazy">
+        <figcaption class="gutter-after">After – Section 2</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- CUSTOMER 4 -->
+  <div class="gutter-job">
+    <h3>Gutter Clearing – Customer 4</h3>
+    <div class="gutter-photos">
+      <figure class="gutter-photo">
+        <img src="gutter-customer-4-before.webp" alt="Customer 4 gutter before clearing" loading="lazy">
+        <figcaption class="gutter-before">Before</figcaption>
+      </figure>
+      <figure class="gutter-photo">
+        <img src="gutter-customer-4-after.webp" alt="Customer 4 gutter after clearing" loading="lazy">
+        <figcaption class="gutter-after">After</figcaption>
+      </figure>
+    </div>
+  </div>
+
+</div>
+
+<p class="gutter-gallery-hint">
+  Swipe left or right to view more gutter clearing jobs.
+</p>
+
 
   </div>
 
