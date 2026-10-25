@@ -1158,6 +1158,47 @@ nav.querySelectorAll('a').forEach(link => {
 
 });
 
+// Adjust gutter gallery height to the visible slide
+const gutterGallery = document.querySelector('.gutter-gallery');
+
+if (gutterGallery) {
+  const gutterSlides = [...gutterGallery.querySelectorAll('.gutter-job')];
+
+  function updateGutterGalleryHeight() {
+    if (!gutterSlides.length) return;
+
+    const galleryCentre =
+      gutterGallery.scrollLeft + gutterGallery.clientWidth / 2;
+
+    const activeSlide = gutterSlides.reduce((closest, slide) => {
+      const slideCentre = slide.offsetLeft - gutterGallery.offsetLeft
+        + slide.offsetWidth / 2;
+      const closestCentre = closest.offsetLeft - gutterGallery.offsetLeft
+        + closest.offsetWidth / 2;
+
+      return Math.abs(slideCentre - galleryCentre) <
+        Math.abs(closestCentre - galleryCentre)
+        ? slide : closest;
+    });
+
+    gutterGallery.style.height =
+      (activeSlide.offsetHeight + 32) + 'px';
+  }
+
+  gutterGallery.addEventListener('scroll', updateGutterGalleryHeight, {
+    passive: true
+  });
+
+  window.addEventListener('resize', updateGutterGalleryHeight);
+  window.addEventListener('load', updateGutterGalleryHeight);
+
+  gutterGallery.querySelectorAll('img').forEach(img => {
+    img.addEventListener('load', updateGutterGalleryHeight);
+  });
+
+  updateGutterGalleryHeight();
+}
+
 </script>
 
 </body>
