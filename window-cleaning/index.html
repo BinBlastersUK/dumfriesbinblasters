@@ -330,13 +330,17 @@ body{
 
 .window-pair{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr;
   gap:18px;
+  background:#181818;
+  border:1px solid #333333;
+  border-radius:18px;
+  padding:20px;
 }
 
 .window-gallery-card{
   position:relative;
-  background:#ffffff;
+  background:#181818;
   border-radius:18px;
   padding:10px;
   overflow:hidden;
@@ -346,10 +350,10 @@ body{
 .window-gallery-card img{
   display:block;
   width:100%;
-  height:100%;
-  min-height:300px;
-  max-height:650px;
-  object-fit:cover;
+  height:auto;
+min-height:0;
+max-height:650px;
+object-fit:contain;
   border-radius:14px;
 }
 
