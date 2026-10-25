@@ -290,11 +290,31 @@ body{
 
 /* BEFORE AFTER */
 
-.gallery-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+.fascia-gallery{
+  display:flex;
+  align-items:flex-start;
   gap:18px;
-  margin-top:26px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding:10px 0 20px;
+  -webkit-overflow-scrolling:touch;
+}
+
+.fascia-job{
+  flex:0 0 100%;
+  min-width:0;
+  background:#181818;
+  border:1px solid #333;
+  border-radius:18px;
+  padding:20px;
+  scroll-snap-align:start;
+}
+
+.fascia-photos{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
 }
 
 .gallery-item{
@@ -303,15 +323,14 @@ body{
   border-radius:18px;
   padding:10px;
   overflow:hidden;
-  box-shadow:0 8px 20px rgba(0,0,0,.22);
 }
 
 .gallery-item img{
   display:block;
   width:100%;
-  height:100%;
+  height:auto;
   max-height:650px;
-  object-fit:cover;
+  object-fit:contain;
   border-radius:14px;
 }
 
@@ -323,18 +342,19 @@ body{
   padding:10px 5px 4px;
 }
 
-@media(max-width:700px){
+.fascia-gallery-hint{
+  color:#bfbfbf;
+  margin-top:20px;
+}
 
-  .gallery-grid{
+@media(max-width:700px){
+  .fascia-photos{
     grid-template-columns:1fr;
   }
 
-  .gallery-item img{
-    height:auto;
-    max-height:none;
-    object-fit:contain;
+  .fascia-job{
+    padding:14px;
   }
-
 }
 
 /* AREAS */
@@ -749,35 +769,55 @@ body.menu-open{
 
     </p>
 
-    <div class="gallery-grid">
+<div class="fascia-gallery">
 
-  <figure class="gallery-item">
-    <img src="fascia-soffit-cleaning-dumfries-before.jpg"
-         alt="Dirty fascia, soffit and guttering before cleaning in Dumfries"
-         loading="lazy">
-    <figcaption>Before</figcaption>
-  </figure>
+  <!-- SLIDE 1: BEFORE AND AFTER -->
+  <div class="fascia-job">
+    <div class="fascia-photos">
 
-  <figure class="gallery-item">
-    <img src="fascia-soffit-cleaning-dumfries-after.jpg"
-         alt="Fascia, soffit and guttering after cleaning in Dumfries"
-         loading="lazy">
-    <figcaption>After</figcaption>
-  </figure>
+      <figure class="gallery-item">
+        <img src="fascia-soffit-cleaning-dumfries-before.jpg"
+             alt="Dirty fascia, soffit and guttering before cleaning in Dumfries"
+             loading="lazy">
+        <figcaption>Before</figcaption>
+      </figure>
 
-  <figure class="gallery-item">
-    <img src="fascia-soffit-cleaning-dumfries-finished.jpg"
-         alt="Finished fascia, soffit and gutter cleaning in Dumfries"
-         loading="lazy">
-    <figcaption>Finished Result</figcaption>
-  </figure>
+      <figure class="gallery-item">
+        <img src="fascia-soffit-cleaning-dumfries-after.jpg"
+             alt="Fascia, soffit and guttering after cleaning in Dumfries"
+             loading="lazy">
+        <figcaption>After</figcaption>
+      </figure>
 
-  <figure class="gallery-item">
-    <img src="fascia-soffit-cleaning-dumfries-after-detail.jpg"
-         alt="Clean fascia and soffit detail after exterior cleaning in Dumfries"
-         loading="lazy">
-    <figcaption>Finished Detail</figcaption>
-  </figure>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: FINISHED RESULTS -->
+  <div class="fascia-job">
+    <div class="fascia-photos">
+
+      <figure class="gallery-item">
+        <img src="fascia-soffit-cleaning-dumfries-finished.jpg"
+             alt="Finished fascia, soffit and gutter cleaning in Dumfries"
+             loading="lazy">
+        <figcaption>Finished Result</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="fascia-soffit-cleaning-dumfries-after-detail.jpg"
+             alt="Clean fascia and soffit detail after exterior cleaning in Dumfries"
+             loading="lazy">
+        <figcaption>Finished Detail</figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+</div>
+
+<p class="fascia-gallery-hint">
+  Swipe left or right to view more fascia and soffit cleaning photos.
+</p>
 
 </div>
 
