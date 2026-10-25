@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+=<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -319,7 +319,7 @@ body{
 
 .gallery-item{
   margin:0;
-  background:#ffffff;
+  background:#181818;
   border-radius:18px;
   padding:10px;
   overflow:hidden;
@@ -335,11 +335,21 @@ body{
 }
 
 .gallery-item figcaption{
-  color:#111111;
+  color:#ffffff;
   font-size:14px;
   font-weight:900;
   text-align:center;
   padding:10px 5px 4px;
+}
+
+/* BEFORE AND AFTER LABEL COLOURS */
+
+.fascia-gallery .gallery-item:has(img[src*="-before"]) figcaption{
+  color:#ff6b6b;
+}
+
+.fascia-gallery .gallery-item:has(img[src*="-after"]) figcaption{
+  color:#7ed321;
 }
 
 .fascia-gallery-hint{
