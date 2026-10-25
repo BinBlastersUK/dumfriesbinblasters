@@ -309,9 +309,23 @@ body{
 }
 
 .window-gallery{
-  display:grid;
+  display:flex;
   gap:22px;
   margin-top:26px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+
+.window-gallery::-webkit-scrollbar{
+  display:none;
+}
+
+.window-gallery > .window-pair{
+  flex:0 0 100%;
+  min-width:0;
+  scroll-snap-align:start;
 }
 
 .window-pair{
@@ -360,10 +374,23 @@ body{
 }
 
 .finished-gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:flex;
   gap:18px;
   margin-top:22px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+
+.finished-gallery::-webkit-scrollbar{
+  display:none;
+}
+
+.finished-gallery > .finished-card{
+  flex:0 0 100%;
+  min-width:0;
+  scroll-snap-align:start;
 }
 
 .finished-card{
@@ -391,10 +418,6 @@ body{
 @media(max-width:700px){
 
   .window-pair{
-    grid-template-columns:1fr;
-  }
-
-  .finished-gallery{
     grid-template-columns:1fr;
   }
 
