@@ -384,6 +384,58 @@ body{
 
 }
 
+/* GUTTER GALLERY CONTROLS */
+
+.gutter-gallery-controls{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:22px;
+  margin-top:12px;
+}
+
+.gutter-prev,
+.gutter-next{
+  background:var(--green);
+  color:#ffffff;
+  border:none;
+  border-radius:50%;
+  width:42px;
+  height:42px;
+  font-size:24px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.gutter-prev:disabled,
+.gutter-next:disabled{
+  opacity:.4;
+  cursor:default;
+}
+
+.gutter-slide-count{
+  font-size:15px;
+  font-weight:900;
+  color:#ffffff;
+}
+
+.gutter-progress{
+  width:100%;
+  height:5px;
+  background:#333333;
+  border-radius:10px;
+  margin-top:16px;
+  overflow:hidden;
+}
+
+.gutter-progress-fill{
+  width:25%;
+  height:100%;
+  background:var(--green);
+  border-radius:10px;
+  transition:width .3s ease;
+}
+
 /* AREAS */
 
 .area-list{
@@ -872,6 +924,24 @@ body.menu-open{
 
 </div>
 
+<div class="gutter-gallery-controls">
+
+  <button type="button" class="gutter-prev" aria-label="Previous gutter clearing job">
+    &#8592;
+  </button>
+
+  <span class="gutter-slide-count">1 / 4</span>
+
+  <button type="button" class="gutter-next" aria-label="Next gutter clearing job">
+    &#8594;
+  </button>
+
+</div>
+
+<div class="gutter-progress">
+  <div class="gutter-progress-fill"></div>
+</div>
+
 <p class="gutter-gallery-hint">
   Swipe left or right to view more gutter clearing jobs.
 </p>
@@ -1197,6 +1267,74 @@ if (gutterGallery) {
   });
 
   updateGutterGalleryHeight();
+}
+
+// Gutter gallery navigation controls
+const gutterPrev = document.querySelector('.gutter-prev');
+const gutterNext = document.querySelector('.gutter-next');
+const gutterCount = document.querySelector('.gutter-slide-count');
+const gutterProgress = document.querySelector('.gutter-progress-fill');
+
+if (gutterGallery && gutterPrev && gutterNext && gutterCount && gutterProgress) {
+  const slides = [...gutterGallery.querySelectorAll('.gutter-job')];
+
+  function updateGutterControls() {
+    if (!slides.length) return;
+
+    const index = slides.reduce((best, slide, i) => {
+      const distance = Math.abs(
+        slide.getBoundingClientRect().left -
+        gutterGallery.getBoundingClientRect().left
+      );
+      const bestDistance = Math.abs(
+        slides[best].getBoundingClientRect().left -
+        gutterGallery.getBoundingClientRect().left
+      );
+      return distance < bestDistance ? i : best;
+    }, 0);
+
+    gutterCount.textContent = `${index + 1} / ${slides.length}`;
+    gutterProgress.style.width =
+      `${((index + 1) / slides.length) * 100}%`;
+
+    gutterPrev.disabled = index === 0;
+    gutterNext.disabled = index === slides.length - 1;
+  }
+
+  function moveGutterSlide(direction) {
+    const index = slides.reduce((best, slide, i) => {
+      const distance = Math.abs(
+        slide.getBoundingClientRect().left -
+        gutterGallery.getBoundingClientRect().left
+      );
+      const bestDistance = Math.abs(
+        slides[best].getBoundingClientRect().left -
+        gutterGallery.getBoundingClientRect().left
+      );
+      return distance < bestDistance ? i : best;
+    }, 0);
+
+    const nextIndex = Math.max(
+      0, Math.min(slides.length - 1, index + direction)
+    );
+
+    gutterGallery.scrollTo({
+      left: slides[nextIndex].offsetLeft - slides[0].offsetLeft,
+      behavior: 'smooth'
+    });
+  }
+
+  gutterPrev.addEventListener('click', () => moveGutterSlide(-1));
+  gutterNext.addEventListener('click', () => moveGutterSlide(1));
+
+  gutterGallery.addEventListener('scroll', updateGutterControls, {
+    passive: true
+  });
+
+  window.addEventListener('resize', updateGutterControls);
+  window.addEventListener('load', updateGutterControls);
+
+  updateGutterControls();
 }
 
 </script>
